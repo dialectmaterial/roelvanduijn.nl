@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 <header class="topbar">
@@ -33,14 +33,38 @@
     <a href="personen.html">Personen</a>
   </nav>
 
-  <p class="intro">De oorlog maand voor maand: wat er gebeurde, en wat Roel er die maand over schreef. Nieuwste maand bovenaan.</p>
+  <section class="phases" aria-labelledby="kort-kop">
+    <h2 id="kort-kop">De oorlog in het kort</h2>
+    <p class="intro">Nieuw in het onderwerp? Zo verliep de oorlog tot nu toe, in zes fases, met bij elke fase wat Roel toen schreef.</p>
+    <ol id="phases"></ol>
+  </section>
+  <h2 class="tl-kop">Maand voor maand</h2>
+  <p class="intro">Wat er gebeurde, en wat Roel er die maand over schreef. Nieuwste maand bovenaan.</p>
   <div id="timeline" class="timeline"></div>
 </main>
-<script src="posts.js?v=17"></script>
+<script src="posts.js?v=18"></script>
 <script>
 const MONTHS = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
 Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())]).then(([posts, extra]) => {
   const series = posts.filter(p => p.series);
+  const byNo = Object.fromEntries(series.map(p => [seriesNo(p), p]));
+  const span = (a, b) => { const f = k => MONTHS[Number(k.slice(5)) - 1] + ' ' + k.slice(0, 4); return a.slice(0, 4) === b.slice(0, 4) && a.slice(5) === '01' && b.slice(5) === '12' ? a.slice(0, 4) : f(a) + ' tot ' + f(b); };
+  for (const ph of extra.phases) {
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="when"></span><h3></h3><p></p><ul class="cols"></ul><a class="to-month"></a>';
+    li.querySelector('.when').textContent = span(ph.from, ph.to);
+    li.querySelector('h3').textContent = ph.title;
+    li.querySelector('p').textContent = ph.text;
+    for (const n of ph.cols) {
+      const p = byNo[n]; if (!p) continue;
+      const item = document.createElement('li'), a = document.createElement('a');
+      a.href = 'artikel.html?bericht=' + p.id; a.innerHTML = '<b></b> ';
+      a.querySelector('b').textContent = n; a.append(postTitle(p));
+      item.append(a); li.querySelector('.cols').append(item);
+    }
+    const to = li.querySelector('.to-month'); to.href = '#' + ph.from; to.textContent = 'Naar deze maanden in de tijdlijn';
+    document.getElementById('phases').append(li);
+  }
   const months = new Map();
   const add = (key, kind, item) => { if (!months.has(key)) months.set(key, { events: [], cols: [] }); months.get(key)[kind].push(item); };
   for (const e of extra.events) add(e.date.slice(0, 7), 'events', e);
@@ -75,6 +99,6 @@ Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())])
     
   </div>
 </footer>
-<script src="nav.js?v=17"></script>
+<script src="nav.js?v=18"></script>
 </body>
 </html>

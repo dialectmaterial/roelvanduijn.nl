@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 <header class="hero">
@@ -34,6 +34,11 @@
       <span class="print"><img src="images/portret-1970.jpg" alt="Roel van Duijn in 1970"></span>
     </div>
     <p class="lede">Schrijver en activist. In 1965 richtte hij Provo mee op, in 1970 de Kabouters. Nu woont hij in Zutphen en schrijft hij over Poetins oorlog, Trump en de toekomst van Europa.</p>
+    <form class="home-search" role="search" action="zoeken.html">
+      <label for="hq" class="visually-hidden">Zoek op de site</label>
+      <input id="hq" name="q" type="search" placeholder="Zoek in alles van Roel">
+      <button type="submit">Zoeken</button>
+    </form>
     <nav id="nav" aria-label="Hoofdmenu"></nav>
   </div>
 </header>
@@ -73,7 +78,7 @@
     </div>
   </section>
 </main>
-<script src="posts.js?v=17"></script>
+<script src="posts.js?v=18"></script>
 <script>
 loadPosts().then(posts => {
   const series = posts.filter(p => p.series);
@@ -87,6 +92,6 @@ loadPosts().then(posts => {
     <p>Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige historische foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.</p>
   </div>
 </footer>
-<script src="nav.js?v=17"></script>
+<script src="nav.js?v=18"></script>
 </body>
 </html>

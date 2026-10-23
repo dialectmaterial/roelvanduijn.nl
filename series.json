@@ -1280,5 +1280,73 @@
    154,
    163
   ]
- }
+ },
+ "phases": [
+  {
+   "from": "2022-02",
+   "to": "2022-04",
+   "title": "Invasie en de slag om Kyiv",
+   "text": "Op 24 februari 2022 valt Rusland Oekraïne van drie kanten binnen. De aanval op Kyiv mislukt; begin april trekt het Russische leger zich terug uit het noorden. Daarna komen de gruwelen van Boetsja aan het licht.",
+   "cols": [
+    2,
+    3,
+    13
+   ]
+  },
+  {
+   "from": "2022-05",
+   "to": "2022-12",
+   "title": "Donbas en de Oekraïense tegenaanvallen",
+   "text": "Rusland richt zich op de Donbas. In september verrast Oekraïne met een tegenoffensief bij Charkiv, in november bevrijdt het Cherson. Poetin annexeert vier regio’s, kondigt een mobilisatie aan en dreigt met kernwapens.",
+   "cols": [
+    42,
+    59,
+    60
+   ]
+  },
+  {
+   "from": "2023-01",
+   "to": "2023-12",
+   "title": "Bachmoet, het zomeroffensief en Prigozjin",
+   "text": "Na maanden van gevechten valt Bachmoet in mei. Het Oekraïense zomeroffensief levert weinig op. In juni komt Wagner-leider Prigozjin in opstand; twee maanden later komt hij om bij een vliegtuigcrash.",
+   "cols": [
+    86,
+    88,
+    95
+   ]
+  },
+  {
+   "from": "2024-01",
+   "to": "2024-12",
+   "title": "Uitputtingsoorlog",
+   "text": "Rusland rukt langzaam op, Avdiivka valt in februari. Navalny sterft in een strafkamp. In augustus valt Oekraïne de Russische regio Koersk binnen. In november wint Trump de Amerikaanse verkiezingen.",
+   "cols": [
+    107,
+    109,
+    129
+   ]
+  },
+  {
+   "from": "2025-01",
+   "to": "2025-12",
+   "title": "Trump terug, Europa op zichzelf",
+   "text": "Trump zet Zelensky onder druk; in februari loopt een gesprek in het Witte Huis uit op ruzie. In augustus ontmoeten Trump en Poetin elkaar in Alaska. Europa besluit fors meer aan defensie uit te geven.",
+   "cols": [
+    137,
+    161,
+    164
+   ]
+  },
+  {
+   "from": "2026-01",
+   "to": "2026-12",
+   "title": "Drones en een nieuw offensief",
+   "text": "Volgens Roel raken Oekraïense drones steeds vaker Russische raffinaderijen en oliehavens. In juni kondigt Zelensky een offensief van veertig dagen aan om Rusland naar de onderhandelingstafel te dwingen.",
+   "cols": [
+    185,
+    187,
+    190
+   ]
+  }
+ ]
 }
