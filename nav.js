@@ -8,7 +8,7 @@ const NAV = [['rusland.html', 'Rusland en Roel'], ['boek.html', 'De aanval op Eu
   const file = location.pathname.split('/').pop();
   const page = (here.match(/pagina=(\d+)/) || [])[1];
   // Old-site pages other than Contact live under Over Roel (the old Boeken page is replaced by boeken.html).
-  const current = href => href === here || (href === './' && (here === '' || here === 'index.html'))
+  const current = href => href === here || (href === 'rusland.html' && ['tijdlijn.html', 'personen.html'].includes(file)) || (href === './' && (here === '' || here === 'index.html'))
     || (href === 'over.html' && page && page !== '595' && file === 'artikel.html');
   for (const [href, label] of NAV) {
     const a = document.createElement('a'); a.href = href; a.textContent = label;

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Personen – Rusland en Roel – Roel van Duijn</title>
+<meta name="description" content="Wie er voorkomt in Rusland en Roel, van Poetin en Zelensky tot Zjenja en Goedroen, met de afleveringen over hen.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Roel van Duijn">
+<meta property="og:title" content="Personen – Rusland en Roel – Roel van Duijn">
+<meta property="og:description" content="Wie er voorkomt in Rusland en Roel, van Poetin en Zelensky tot Zjenja en Goedroen, met de afleveringen over hen.">
+<meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
+<meta property="og:locale" content="nl_NL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="style.css?v=16">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="home" href="./">Roel van Duijn</a>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
+  </div>
+</header>
+<main class="wrap archive">
+  <h1 class="page-title">Rusland en Roel</h1>
+  <nav class="subnav" aria-label="Rusland en Roel">
+    <a href="rusland.html">Afleveringen</a>
+    <a href="tijdlijn.html">Tijdlijn</a>
+    <a href="personen.html" aria-current="page">Personen</a>
+  </nav>
+
+  <p class="intro">Wie er in de reeks voorkomt, en in welke afleveringen. Klik op een naam voor de lijst.</p>
+  <div id="people" class="people"></div>
+</main>
+<script src="posts.js?v=16"></script>
+<script>
+Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())]).then(([posts, extra]) => {
+  const byNo = Object.fromEntries(posts.filter(p => p.series).map(p => [seriesNo(p), p]));
+  const el = document.getElementById('people'), open = location.hash.slice(1);
+  for (const person of [...extra.people].sort((a, b) => b.cols.length - a.cols.length)) {
+    const d = document.createElement('details'); d.id = person.slug; d.open = person.slug === open;
+    d.innerHTML = '<summary><strong></strong> <span class="n"></span><span class="desc"></span></summary><ul class="cols"></ul>';
+    d.querySelector('strong').textContent = person.name;
+    d.querySelector('.n').textContent = person.cols.length === 1 ? '1 aflevering' : person.cols.length + ' afleveringen';
+    d.querySelector('.desc').textContent = person.desc;
+    const ul = d.querySelector('ul');
+    for (const n of person.cols) {
+      const p = byNo[n]; if (!p) continue;
+      const li = document.createElement('li'), a = document.createElement('a');
+      a.href = 'artikel.html?bericht=' + p.id; a.innerHTML = '<b></b> ';
+      a.querySelector('b').textContent = n; a.append(postTitle(p) + ' (' + fmtDate(p.date) + ')');
+      li.append(a); ul.append(li);
+    }
+    el.append(d);
+  }
+  if (open) document.getElementById(open)?.scrollIntoView();
+});
+</script>
+<footer>
+  <div class="wrap">
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
+    
+  </div>
+</footer>
+<script src="nav.js?v=16"></script>
+</body>
+</html>

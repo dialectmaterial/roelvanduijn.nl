@@ -1,0 +1,928 @@
+{
+ "people": [
+  {
+   "slug": "poetin",
+   "name": "Vladimir Poetin",
+   "desc": "President van Rusland, die in februari 2022 de grootschalige invasie van Oekraïne begon.",
+   "cols": [
+    194,
+    193,
+    192,
+    191,
+    190,
+    189,
+    188,
+    187,
+    186,
+    185,
+    184,
+    183,
+    182,
+    181,
+    180,
+    179,
+    178,
+    176,
+    175,
+    174,
+    173,
+    172,
+    171,
+    170,
+    169,
+    168,
+    167,
+    166,
+    165,
+    164,
+    163,
+    162,
+    160,
+    159,
+    157,
+    156,
+    155,
+    154,
+    153,
+    152,
+    151,
+    150,
+    149,
+    148,
+    147,
+    146,
+    145,
+    144,
+    143,
+    142,
+    141,
+    140,
+    139,
+    137,
+    136,
+    135,
+    134,
+    133,
+    132,
+    131,
+    130,
+    129,
+    128,
+    126,
+    124,
+    123,
+    122,
+    121,
+    120,
+    119,
+    118,
+    117,
+    116,
+    115,
+    114,
+    113,
+    112,
+    111,
+    110,
+    109,
+    108,
+    107,
+    89,
+    88,
+    87,
+    86,
+    64,
+    63,
+    62,
+    61,
+    60,
+    59,
+    58,
+    57,
+    56,
+    55,
+    54,
+    53,
+    52,
+    51,
+    48,
+    44,
+    42,
+    39,
+    38,
+    37,
+    36,
+    35,
+    34,
+    33,
+    32,
+    31,
+    30,
+    29,
+    28,
+    13
+   ]
+  },
+  {
+   "slug": "zelensky",
+   "name": "Volodymyr Zelensky",
+   "desc": "President van Oekraïne.",
+   "cols": [
+    194,
+    192,
+    191,
+    190,
+    189,
+    187,
+    186,
+    182,
+    181,
+    180,
+    178,
+    175,
+    174,
+    173,
+    172,
+    167,
+    164,
+    162,
+    161,
+    160,
+    157,
+    149,
+    146,
+    145,
+    143,
+    141,
+    140,
+    139,
+    136,
+    133,
+    132,
+    131,
+    130,
+    129,
+    126,
+    123,
+    116,
+    114,
+    113,
+    111,
+    109,
+    88,
+    64,
+    63,
+    61,
+    60,
+    58,
+    56,
+    52,
+    51,
+    48,
+    44,
+    42,
+    31,
+    30,
+    13
+   ]
+  },
+  {
+   "slug": "trump",
+   "name": "Donald Trump",
+   "desc": "President van de Verenigde Staten sinds januari 2025, eerder van 2017 tot 2021.",
+   "cols": [
+    194,
+    193,
+    192,
+    191,
+    190,
+    187,
+    185,
+    184,
+    183,
+    182,
+    181,
+    180,
+    179,
+    178,
+    177,
+    176,
+    175,
+    174,
+    173,
+    172,
+    171,
+    170,
+    169,
+    168,
+    167,
+    166,
+    165,
+    164,
+    163,
+    162,
+    160,
+    159,
+    158,
+    157,
+    156,
+    154,
+    153,
+    152,
+    151,
+    150,
+    149,
+    148,
+    147,
+    146,
+    145,
+    144,
+    143,
+    142,
+    141,
+    140,
+    139,
+    137,
+    136,
+    135,
+    134,
+    133,
+    132,
+    131,
+    130,
+    129,
+    126,
+    122,
+    117,
+    116,
+    115,
+    114,
+    112,
+    108,
+    107,
+    59,
+    58,
+    38,
+    33,
+    31
+   ]
+  },
+  {
+   "slug": "biden",
+   "name": "Joe Biden",
+   "desc": "President van de Verenigde Staten van 2021 tot 2025.",
+   "cols": [
+    174,
+    173,
+    165,
+    163,
+    159,
+    157,
+    148,
+    146,
+    145,
+    134,
+    131,
+    129,
+    126,
+    124,
+    123,
+    122,
+    115,
+    110,
+    109,
+    108,
+    107,
+    62,
+    58,
+    54,
+    52,
+    34,
+    33
+   ]
+  },
+  {
+   "slug": "orban",
+   "name": "Viktor Orbán",
+   "desc": "Hongaarse premier en bondgenoot van Poetin en Trump binnen de EU.",
+   "cols": [
+    182,
+    180,
+    178,
+    173,
+    170,
+    168,
+    167,
+    164,
+    150,
+    148,
+    147,
+    133,
+    130,
+    122,
+    118,
+    116,
+    114,
+    110,
+    51,
+    44
+   ]
+  },
+  {
+   "slug": "magyar",
+   "name": "Péter Magyar",
+   "desc": "Hongaarse oppositieleider die in april 2026 de verkiezingen van Orbán won.",
+   "cols": [
+    182,
+    178,
+    170
+   ]
+  },
+  {
+   "slug": "kallas",
+   "name": "Kaja Kallas",
+   "desc": "Oud-premier van Estland, sinds december 2024 de buitenlandchef van de EU.",
+   "cols": [
+    185,
+    180,
+    176,
+    173
+   ]
+  },
+  {
+   "slug": "rutte",
+   "name": "Mark Rutte",
+   "desc": "Oud-premier van Nederland, sinds oktober 2024 secretaris-generaal van de NAVO.",
+   "cols": [
+    183,
+    180,
+    176,
+    173,
+    170,
+    162,
+    154,
+    153,
+    152,
+    150,
+    148,
+    131,
+    130,
+    111,
+    107,
+    62,
+    13
+   ]
+  },
+  {
+   "slug": "merz",
+   "name": "Friedrich Merz",
+   "desc": "Bondskanselier van Duitsland sinds mei 2025.",
+   "cols": [
+    193,
+    192,
+    191,
+    189,
+    174,
+    173,
+    164,
+    162,
+    160,
+    158,
+    149,
+    145,
+    132,
+    121
+   ]
+  },
+  {
+   "slug": "scholz",
+   "name": "Olaf Scholz",
+   "desc": "Bondskanselier van Duitsland van 2021 tot 2025.",
+   "cols": [
+    164,
+    145,
+    132,
+    130,
+    117,
+    107,
+    89,
+    57,
+    30
+   ]
+  },
+  {
+   "slug": "macron",
+   "name": "Emmanuel Macron",
+   "desc": "President van Frankrijk.",
+   "cols": [
+    183,
+    177,
+    173,
+    162,
+    158,
+    149,
+    146,
+    145,
+    132,
+    131,
+    112,
+    109,
+    58,
+    30
+   ]
+  },
+  {
+   "slug": "vonderleyen",
+   "name": "Ursula von der Leyen",
+   "desc": "Voorzitter van de Europese Commissie.",
+   "cols": [
+    180,
+    177,
+    164,
+    163,
+    162,
+    135,
+    116,
+    107
+   ]
+  },
+  {
+   "slug": "xi",
+   "name": "Xi Jinping",
+   "desc": "President van China.",
+   "cols": [
+    176,
+    173,
+    163,
+    159,
+    156,
+    140,
+    116,
+    114
+   ]
+  },
+  {
+   "slug": "loekasjenko",
+   "name": "Aleksandr Loekasjenko",
+   "desc": "Dictator van Belarus en bondgenoot van Poetin.",
+   "cols": [
+    187,
+    186,
+    185,
+    166,
+    86,
+    42,
+    30
+   ]
+  },
+  {
+   "slug": "prigozjin",
+   "name": "Jevgeni Prigozjin",
+   "desc": "Leider van de Wagner-huurlingen; kwam in juni 2023 in opstand en stierf twee maanden later bij een vliegtuigcrash.",
+   "cols": [
+    186,
+    183,
+    175,
+    118,
+    88,
+    87,
+    86,
+    64,
+    61,
+    58,
+    56,
+    54,
+    48,
+    44,
+    42,
+    39,
+    38,
+    34
+   ]
+  },
+  {
+   "slug": "navalny",
+   "name": "Aleksej Navalny",
+   "desc": "Russische oppositieleider, in februari 2024 gestorven in een strafkamp.",
+   "cols": [
+    86,
+    57,
+    48,
+    43,
+    38,
+    35,
+    32,
+    29,
+    28
+   ]
+  },
+  {
+   "slug": "medvedev",
+   "name": "Dmitri Medvedev",
+   "desc": "Oud-president van Rusland, nu vicevoorzitter van de Veiligheidsraad.",
+   "cols": [
+    107,
+    30
+   ]
+  },
+  {
+   "slug": "lavrov",
+   "name": "Sergej Lavrov",
+   "desc": "Minister van Buitenlandse Zaken van Rusland.",
+   "cols": [
+    191,
+    182,
+    179,
+    171,
+    133,
+    124,
+    54,
+    38,
+    31,
+    29
+   ]
+  },
+  {
+   "slug": "peskov",
+   "name": "Dmitri Peskov",
+   "desc": "Woordvoerder van Poetin.",
+   "cols": [
+    188,
+    180,
+    164,
+    131,
+    126,
+    115,
+    86,
+    59
+   ]
+  },
+  {
+   "slug": "schroder",
+   "name": "Gerhard Schröder",
+   "desc": "Oud-bondskanselier van Duitsland, bevriend met Poetin.",
+   "cols": [
+    194,
+    152,
+    89,
+    57
+   ]
+  },
+  {
+   "slug": "wilders",
+   "name": "Geert Wilders",
+   "desc": "Leider van de PVV.",
+   "cols": [
+    182,
+    178,
+    173,
+    170,
+    159,
+    157,
+    150,
+    148,
+    147,
+    139,
+    130,
+    128,
+    125,
+    122,
+    121,
+    116,
+    114,
+    112,
+    111,
+    110,
+    109,
+    55,
+    51,
+    43
+   ]
+  },
+  {
+   "slug": "baudet",
+   "name": "Thierry Baudet",
+   "desc": "Leider van Forum voor Democratie.",
+   "cols": [
+    159,
+    157,
+    147,
+    122,
+    120,
+    112,
+    43,
+    13
+   ]
+  },
+  {
+   "slug": "erdogan",
+   "name": "Recep Tayyip Erdoğan",
+   "desc": "President van Turkije.",
+   "cols": [
+    54,
+    51,
+    31
+   ]
+  },
+  {
+   "slug": "netanyahu",
+   "name": "Benjamin Netanyahu",
+   "desc": "Premier van Israël.",
+   "cols": [
+    181,
+    164,
+    158,
+    157,
+    154,
+    152,
+    126,
+    124,
+    122,
+    111,
+    108
+   ]
+  },
+  {
+   "slug": "kim",
+   "name": "Kim Jong-un",
+   "desc": "Dictator van Noord-Korea, die Poetin troepen en wapens leverde.",
+   "cols": [
+    163,
+    126
+   ]
+  },
+  {
+   "slug": "hitler",
+   "name": "Adolf Hitler",
+   "desc": "Roel vergelijkt Poetin geregeld met hem.",
+   "cols": [
+    193,
+    191,
+    190,
+    189,
+    188,
+    185,
+    178,
+    175,
+    174,
+    170,
+    169,
+    166,
+    158,
+    157,
+    154,
+    153,
+    149,
+    148,
+    147,
+    146,
+    143,
+    139,
+    137,
+    136,
+    135,
+    133,
+    129,
+    128,
+    113,
+    89,
+    88,
+    86,
+    64,
+    63,
+    57,
+    56,
+    53,
+    51,
+    36,
+    31,
+    30
+   ]
+  },
+  {
+   "slug": "stalin",
+   "name": "Jozef Stalin",
+   "desc": "Sovjetdictator; Roel ziet zijn erfenis terug in Poetins Rusland.",
+   "cols": [
+    189,
+    176,
+    174,
+    157,
+    149,
+    146,
+    145,
+    143,
+    140,
+    139,
+    137,
+    136,
+    121,
+    107,
+    89,
+    88,
+    87,
+    61,
+    56,
+    53,
+    52,
+    51,
+    48,
+    37,
+    36,
+    32,
+    30,
+    13
+   ]
+  },
+  {
+   "slug": "zjenja",
+   "name": "Zjenja",
+   "desc": "Roels Russische ex-vrouw. Over hun huwelijk tijdens Poetins oorlogen schreef hij Schoonvader van Poetins geheim agent.",
+   "cols": [
+    142,
+    119,
+    110,
+    88,
+    87,
+    64,
+    63,
+    62,
+    61,
+    60,
+    56,
+    55,
+    52,
+    51,
+    48,
+    44,
+    43,
+    42,
+    39,
+    38,
+    37,
+    35,
+    34,
+    33,
+    32,
+    31,
+    30,
+    29,
+    28
+   ]
+  },
+  {
+   "slug": "goedroen",
+   "name": "Goedroen",
+   "desc": "Roels partner, met wie hij in Zutphen woont.",
+   "cols": [
+    192,
+    184,
+    172,
+    140,
+    137,
+    135,
+    132,
+    123,
+    121,
+    120,
+    119,
+    118,
+    89,
+    87,
+    60,
+    59,
+    57,
+    56,
+    55,
+    54,
+    53,
+    52,
+    51
+   ]
+  }
+ ],
+ "events": [
+  {
+   "date": "2022-02-24",
+   "text": "Rusland valt Oekraïne binnen."
+  },
+  {
+   "date": "2022-04-02",
+   "text": "Na de Russische aftocht uit de regio Kyiv komen de gruwelen van Boetsja aan het licht."
+  },
+  {
+   "date": "2022-05-18",
+   "text": "Finland en Zweden vragen het lidmaatschap van de NAVO aan."
+  },
+  {
+   "date": "2022-06-23",
+   "text": "Oekraïne wordt kandidaat-lidstaat van de EU."
+  },
+  {
+   "date": "2022-09-06",
+   "text": "Oekraïens tegenoffensief in de regio Charkiv."
+  },
+  {
+   "date": "2022-09-21",
+   "text": "Poetin kondigt een gedeeltelijke mobilisatie aan."
+  },
+  {
+   "date": "2022-09-30",
+   "text": "Rusland annexeert vier Oekraïense regio’s."
+  },
+  {
+   "date": "2022-10-08",
+   "text": "Explosie op de Krimbrug."
+  },
+  {
+   "date": "2022-11-11",
+   "text": "Oekraïne bevrijdt Cherson."
+  },
+  {
+   "date": "2022-11-17",
+   "text": "Vonnis in het MH17-proces."
+  },
+  {
+   "date": "2023-04-04",
+   "text": "Finland wordt lid van de NAVO."
+  },
+  {
+   "date": "2023-06-06",
+   "text": "De Kachovka-dam wordt vernietigd."
+  },
+  {
+   "date": "2023-06-24",
+   "text": "Opstand van Prigozjin en zijn Wagner-huurlingen."
+  },
+  {
+   "date": "2023-08-23",
+   "text": "Prigozjin komt om bij een vliegtuigcrash."
+  },
+  {
+   "date": "2023-12-14",
+   "text": "De EU besluit toetredingsonderhandelingen met Oekraïne te openen."
+  },
+  {
+   "date": "2024-02-16",
+   "text": "Navalny sterft in een Russisch strafkamp."
+  },
+  {
+   "date": "2024-02-17",
+   "text": "Avdiivka valt in Russische handen."
+  },
+  {
+   "date": "2024-03-07",
+   "text": "Zweden wordt lid van de NAVO."
+  },
+  {
+   "date": "2024-03-22",
+   "text": "Aanslag op de concertzaal Crocus City Hall bij Moskou."
+  },
+  {
+   "date": "2024-08-06",
+   "text": "Oekraïne valt de Russische regio Koersk binnen."
+  },
+  {
+   "date": "2024-11-05",
+   "text": "Trump wint de Amerikaanse presidentsverkiezingen."
+  },
+  {
+   "date": "2025-01-20",
+   "text": "Trump wordt ingehuldigd."
+  },
+  {
+   "date": "2025-02-28",
+   "text": "Ruzie in het Oval Office tussen Trump, Vance en Zelensky."
+  },
+  {
+   "date": "2025-06-01",
+   "text": "Oekraïense drones vernietigen Russische bommenwerpers diep in Rusland (Operatie Spinnenweb)."
+  },
+  {
+   "date": "2025-06-25",
+   "text": "NAVO-top in Den Haag: de lidstaten beloven 5 procent van hun bbp aan defensie."
+  },
+  {
+   "date": "2025-08-15",
+   "text": "Trump en Poetin ontmoeten elkaar in Alaska."
+  },
+  {
+   "date": "2025-08-18",
+   "text": "Europese leiders reizen met Zelensky naar Washington."
+  },
+  {
+   "date": "2026-04-12",
+   "text": "Péter Magyar wint de Hongaarse verkiezingen van Orbán."
+  },
+  {
+   "date": "2026-05-11",
+   "text": "Roel presenteert De aanval op Europa in het Verzetsmuseum."
+  }
+ ],
+ "start": {
+  "": [
+   175,
+   164
+  ]
+ }
+}
