@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 <header class="topbar">
@@ -25,10 +25,15 @@
     <p>Roel van Duijn werd in 1943 in Den Haag geboren. Hij richtte in 1965 Provo mee op en in 1970 de Kabouters, en zette zich daarna in voor groene politiek, in Amsterdam en in Europa. Hij schreef een groot aantal boeken over politiek en geschiedenis. Hij woont in Zutphen.</p>
   </div>
   <a class="more" href="artikel.html?pagina=2">Lees zijn biografie</a>
+  <h2 id="pers">In de pers</h2>
+  <p class="intro">Interviews, recensies en een podcast over Roel en zijn boeken.</p>
+  <div id="press"></div>
   <h2>Meer over Roel</h2>
   <div id="list"></div>
 </main>
+<script src="posts.js?v=9"></script>
 <script>
+loadPress().then(items => renderPress(document.getElementById('press'), items));
 // The other pages of the old site, in a sensible order.
 const ORDER = ['Politiek', 'Publicaties', 'Films – Documentaires – Uitzendingen', 'Familie', 'Chopin', 'Frédéric Chopin 200 jaar geleden geboren', 'Diepvriesfiguur', 'Werkstukken studenten', 'Links', 'English Page'];
 fetch('pages.json').then(r => r.json()).then(pages => {
@@ -53,6 +58,6 @@ fetch('pages.json').then(r => r.json()).then(pages => {
     
   </div>
 </footer>
-<script src="nav.js?v=7"></script>
+<script src="nav.js?v=9"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 // berichten.html, rusland.html and boek.html.
 const fmtDate = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
 const BOOK = /aanval op europa|eurotariaat/i;
-const DATA_V = '6';  // bump when posts.json or themes.json change
+const DATA_V = '8';  // bump when posts.json or themes.json change
 
 const seriesNo = p => p.series ? Number(p.series.match(/\d+/)[0]) : null;
 const isBook = p => BOOK.test((p.title || '') + ' ' + (p.subtitle || '') + ' ' + p.text);
@@ -87,5 +87,21 @@ function renderPosts(el, posts, { byYear = false, numbered = false, terms = null
       const h = document.createElement('h3'); h.className = 'year'; h.textContent = year = y; el.append(h);
     }
     el.append(postCard(p, { numbered, terms, themes }));
+  }
+}
+
+// Press coverage (press.json): interviews, reviews and podcasts about Roel.
+const loadPress = () => fetch('press.json?v=' + DATA_V).then(r => r.json());
+function renderPress(el, items) {
+  el.replaceChildren();
+  for (const p of items) {
+    const a = document.createElement('a');
+    a.className = 'item press'; a.href = p.url; a.rel = 'noopener';
+    a.innerHTML = '<time></time><h3></h3><span class="series"></span><p></p>';
+    a.querySelector('time').textContent = fmtDate(p.date);
+    a.querySelector('h3').textContent = p.title;
+    a.querySelector('.series').textContent = p.kind + (p.kind === 'Podcast' ? ' bij ' : ' in ') + p.outlet + (p.by ? ', door ' + p.by : '');
+    a.querySelector('p').textContent = p.note;
+    el.append(a);
   }
 }

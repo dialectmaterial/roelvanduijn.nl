@@ -188,3 +188,4 @@ footer p { margin: 0 0 8px; }
 .archive .tags { font: 500 .85rem/1.35 var(--display); font-variation-settings: "wdth" 85; color: var(--ink-soft); }
 mark { background: var(--leaf-paper); color: var(--ink); box-shadow: 0 2px 0 var(--leaf); padding: 0 1px; }
 .post .themes-line { margin-top: 10px; font-size: .95rem; color: var(--ink-soft); }
+.archive a.item.press h3 { font-size: 1.15rem; }

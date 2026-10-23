@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 <header class="topbar">
@@ -46,12 +46,16 @@
   </section>
 
   <section aria-labelledby="pres-kop">
-    <h2 id="pres-kop">Presentatie, debat en pers</h2>
+    <h2 id="pres-kop">Presentatie en debat</h2>
     <div class="archive">
       <div class="item"><time>11 mei 2026</time><h3>Presentatie in het Verzetsmuseum, Amsterdam</h3><p>Met Saskia Beugel als voorzitter, Europarlementariërs Kim van Sparrentak en Bas Eickhout, vredesbewegers Gied ten Berge en Jitske Hoogenboom, en zangeres Peppy Mac. Er kwamen 135 mensen.</p></div>
       <div class="item"><time>24 juni 2026</time><h3>Debatpodium Zutphen</h3><p>Politicoloog Klaas Schermer in gesprek met Roel en het publiek in ’t Pakhuys: wordt Europa bedreigd, en moeten we ons wapenen?</p></div>
-      <a class="item" href="https://dekanttekening.nl/wereld/roel-van-duijn-trump-lijkt-soms-een-beetje-verliefd-op-poetin/"><time>17 juli 2026</time><h3>‘Trump lijkt soms een beetje verliefd op Poetin’</h3><p>Interview over het boek in De Kanttekening.</p></a>
     </div>
+  </section>
+
+  <section aria-labelledby="pers-kop">
+    <h2 id="pers-kop">In de pers</h2>
+    <div class="archive" id="press"></div>
   </section>
 
   <section aria-labelledby="fb-kop">
@@ -59,9 +63,10 @@
     <div class="archive" id="posts"></div>
   </section>
 </main>
-<script src="posts.js?v=7"></script>
+<script src="posts.js?v=9"></script>
 <script>
 loadPosts().then(posts => renderPosts(document.getElementById('posts'), posts.filter(isBook)));
+loadPress().then(items => renderPress(document.getElementById('press'), items.filter(p => p.about === 'boek')));
 </script>
 <footer>
   <div class="wrap">
@@ -69,6 +74,6 @@ loadPosts().then(posts => renderPosts(document.getElementById('posts'), posts.fi
     
   </div>
 </footer>
-<script src="nav.js?v=7"></script>
+<script src="nav.js?v=9"></script>
 </body>
 </html>
