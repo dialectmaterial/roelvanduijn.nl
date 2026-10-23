@@ -46,13 +46,13 @@ a:hover { text-decoration-thickness: 2px; text-decoration-color: var(--leaf); }
 }
 
 /* Site navigation, under the hero and on every subpage. */
-nav { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 18px 0; margin-top: 32px; border-top: 3px solid var(--leaf); font: 500 .95rem/1.3 var(--display); font-variation-settings: "wdth" 85; }
-nav a { text-decoration: none; color: var(--ink-soft); }
-nav a:hover, nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--leaf); text-decoration-thickness: 2px; }
+#nav { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 18px 0; margin-top: 32px; border-top: 3px solid var(--leaf); font: 500 .95rem/1.3 var(--display); font-variation-settings: "wdth" 85; }
+#nav a { text-decoration: none; color: var(--ink-soft); }
+#nav a:hover, #nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--leaf); text-decoration-thickness: 2px; }
 
 .topbar { padding-top: 28px; background: var(--leaf-paper); }
 .topbar .home { font: 850 2.4rem/1 var(--display); font-variation-settings: "wdth" 62; text-decoration: none; }
-.topbar nav { margin-top: 14px; padding-bottom: 14px; }
+.topbar #nav { margin-top: 14px; padding-bottom: 14px; }
 
 /* Section headings. */
 h2 { font: 750 1.9rem/1.1 var(--display); font-variation-settings: "wdth" 75; margin: 64px 0 8px; }
@@ -103,3 +103,74 @@ figcaption span { display: block; font-weight: 400; color: var(--ink-soft); font
 
 footer { margin-top: 80px; padding: 24px 0 48px; border-top: 3px solid var(--leaf); color: var(--ink-soft); font-size: .9rem; line-height: 1.5; }
 .back { display: inline-block; margin-top: 32px; }
+
+/* Page titles on list pages. */
+.page-title { font: 850 clamp(2.4rem, 8vw, 3.6rem)/1 var(--display); font-variation-settings: "wdth" 66; margin: 44px 0 12px; }
+.intro a { color: var(--ink); }
+h2 a { text-decoration: none; }
+h2 a:hover { text-decoration: underline; text-decoration-color: var(--leaf); }
+.kicker { margin: 0 0 6px; font: 600 .95rem/1.3 var(--display); font-variation-settings: "wdth" 85; color: var(--leaf); }
+.sub { margin: 0 0 14px; font-style: italic; font-size: 1.2rem; color: var(--ink-soft); }
+
+/* The book on the home page: the cover is the one large image below the hero. */
+.book-feature { display: grid; grid-template-columns: 13rem 1fr; gap: 32px; align-items: start; margin-top: 56px; }
+.book-feature .cover img { display: block; width: 100%; box-shadow: 0 1px 0 var(--rule), 6px 6px 0 var(--leaf-paper); }
+.book-feature h2 { margin: 0; font-size: 2.6rem; line-height: 1; font-variation-settings: "wdth" 66; font-weight: 850; }
+.book-feature p { margin: 0 0 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 16px !important; font: 600 1rem/1.3 var(--display); font-variation-settings: "wdth" 85; }
+@media (max-width: 600px) {
+  .book-feature { grid-template-columns: 7.5rem 1fr; gap: 18px; }
+  .book-feature h2 { font-size: 1.9rem; }
+}
+
+/* Numbered series lists: the column number takes the place of the date. */
+.archive a.item.numbered .no { grid-column: 1; grid-row: 1 / span 3; font: 850 2.6rem/.9 var(--display); font-variation-settings: "wdth" 70; color: var(--leaf); }
+@media (max-width: 600px) {
+  .archive a.item.numbered, .archive a.item.numbered.post-item { grid-template-columns: 3.4rem 1fr 4.5rem; }
+  .archive a.item.numbered:not(.post-item) { grid-template-columns: 3.4rem 1fr; }
+  .archive a.item.numbered > * { grid-column: 2; }
+  .archive a.item.numbered > .no { grid-column: 1; grid-row: 1 / span 4; font-size: 2rem; }
+  .archive a.item.numbered > .print { grid-column: 3; }
+}
+/* Non-link list rows (events on the book page). */
+.archive div.item { display: grid; grid-template-columns: 7.5rem 1fr; gap: 4px 20px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.archive div.item > * { grid-column: 2; }
+.archive div.item > time { grid-column: 1; grid-row: 1 / span 2; }
+@media (max-width: 600px) { .archive div.item { grid-template-columns: 1fr; } .archive div.item > *, .archive div.item > time { grid-column: 1; grid-row: auto; } }
+
+/* Filter buttons on the posts page. */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
+.filters button { font: 600 .95rem/1 var(--display); font-variation-settings: "wdth" 85; color: var(--ink); background: transparent; border: 1.5px solid var(--ink); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+.filters button:hover { border-color: var(--leaf); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* The book page. */
+.book-head { display: grid; grid-template-columns: 15rem 1fr; gap: 36px; align-items: start; margin-top: 44px; }
+.book-head .cover { width: 100%; display: block; box-shadow: 6px 6px 0 var(--leaf-paper); }
+.book-head h1 { font: 850 clamp(2.4rem, 7vw, 3.8rem)/.95 var(--display); font-variation-settings: "wdth" 66; margin: 0 0 6px; }
+.order { padding: 14px 16px; background: var(--leaf-paper); border-left: 3px solid var(--leaf); }
+.order a { font-weight: 600; }
+.meta { font: 500 .9rem/1.4 var(--display); font-variation-settings: "wdth" 85; color: var(--ink-soft); }
+.prose { max-width: 38rem; }
+.prose p { margin: 0 0 1em; }
+.video { position: relative; aspect-ratio: 16 / 9; background: var(--ink); margin-top: 16px; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 600px) { .book-head { grid-template-columns: 1fr; gap: 20px; } .book-head .cover { width: 60%; } }
+
+/* About page intro. */
+.about { display: grid; grid-template-columns: 9rem 1fr; gap: 24px; align-items: start; margin-top: 8px; }
+.about .print { aspect-ratio: 4 / 5; }
+.about p { margin: 0; font-size: 1.2rem; line-height: 1.55; }
+@media (max-width: 600px) { .about { grid-template-columns: 6rem 1fr; gap: 16px; } .about p { font-size: 1.05rem; } }
+
+/* Previous / next column within Rusland en Roel. */
+.series-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; margin-top: 28px; padding-top: 20px; border-top: 3px solid var(--leaf); }
+.series-nav a { text-decoration: none; }
+.series-nav a span { display: block; font: 500 .9rem/1.3 var(--display); font-variation-settings: "wdth" 85; color: var(--leaf); }
+.series-nav a strong { font-weight: 500; font-size: 1.1rem; line-height: 1.3; }
+.series-nav a:hover strong { text-decoration: underline; text-decoration-color: var(--leaf); }
+.series-nav .next { grid-column: 2; text-align: right; }
+.series-nav .all { grid-column: 1 / -1; font: 600 1rem/1.3 var(--display); font-variation-settings: "wdth" 85; }
+@media (max-width: 600px) { .series-nav { grid-template-columns: 1fr; } .series-nav .next { grid-column: 1; text-align: left; } }
+section > h2:first-child { margin-top: 64px; }
+footer p { margin: 0 0 8px; }

@@ -8,27 +8,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap">
     <a class="home" href="./">Roel van Duijn</a>
-    <nav id="nav"></nav>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
   </div>
 </header>
 <main class="wrap post">
-  <article style="border:0;padding:0;margin-top:24px">
+  <article>
     <time></time>
     <h1></h1>
     <div class="body"></div>
     <p class="orig"></p>
+    <nav class="series-nav" aria-label="Rusland en Roel" hidden></nav>
   </article>
 </main>
-<script src="posts.js?v=4"></script>
+<script src="posts.js?v=5"></script>
 <script>
 const q = new URLSearchParams(location.search);
-if (q.has('bericht')) fetch('posts.json').then(r => r.json()).then(list => {
+if (q.has('bericht')) loadPosts().then(list => {
   const p = list.find(x => x.id === q.get('bericht'));
   if (!p) { document.querySelector('h1').textContent = 'Bericht niet gevonden'; return; }
   document.title = postTitle(p) + ' – Roel van Duijn';
@@ -47,7 +48,26 @@ if (q.has('bericht')) fetch('posts.json').then(r => r.json()).then(list => {
     const a = document.createElement('a'); a.href = href; a.className = 'ext';
     a.textContent = 'Link: ' + new URL(href).hostname.replace(/^www\./, ''); body.append(a);
   }
-  document.querySelector('.orig').innerHTML = 'Oorspronkelijk geplaatst op <a href="https://www.facebook.com/roelvduijn">Facebook</a>';
+  document.querySelector('.orig').innerHTML = 'Oorspronkelijk geplaatst op <a href="https://www.facebook.com/roelvduijn">Facebook</a>.'
+    + (isBook(p) ? ' Meer over het boek: <a href="boek.html">De aanval op Europa</a>.' : '');
+  // Within the series: links to the previous and next column.
+  if (p.series) {
+    const n = seriesNo(p), all = list.filter(x => x.series);
+    const prev = all.filter(x => seriesNo(x) < n).sort((a, b) => seriesNo(b) - seriesNo(a))[0];
+    const next = all.filter(x => seriesNo(x) > n).sort((a, b) => seriesNo(a) - seriesNo(b))[0];
+    const nav = document.querySelector('.series-nav');
+    for (const [x, label, cls] of [[prev, 'Vorige aflevering', 'prev'], [next, 'Volgende aflevering', 'next']]) {
+      if (!x) continue;
+      const a = document.createElement('a'); a.href = 'artikel.html?bericht=' + x.id; a.className = cls;
+      a.innerHTML = '<span></span><strong></strong>';
+      a.querySelector('span').textContent = label + ', ' + seriesNo(x);
+      a.querySelector('strong').textContent = postTitle(x);
+      nav.append(a);
+    }
+    const all_ = document.createElement('a'); all_.href = 'rusland.html'; all_.className = 'all'; all_.textContent = 'Alle afleveringen van Rusland en Roel';
+    nav.append(all_);
+    nav.hidden = false;
+  }
 });
 const isPage = q.has('pagina');
 const id = Number(isPage ? q.get('pagina') : q.get('id'));
@@ -61,6 +81,6 @@ if (!q.has('bericht')) fetch(isPage ? 'pages.json' : 'articles.json').then(r => 
   document.querySelector('.orig').textContent = 'Oorspronkelijk gepubliceerd op roelvanduijn.nl';
 });
 </script>
-<script src="nav.js?v=4"></script>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

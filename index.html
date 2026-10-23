@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Roel van Duijn</title>
+<meta name="description" content="Roel van Duijn: schrijver en activist, medeoprichter van Provo en de Kabouters. Zijn nieuwe boek De aanval op Europa en zijn reeks Rusland en Roel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <header class="hero">
@@ -17,42 +18,64 @@
       <h1 class="name">Roel van <span>Duijn</span></h1>
       <span class="print"><img src="images/portret-1970.jpg" alt="Roel van Duijn in 1970"></span>
     </div>
-    <p class="lede">Schrijver en activist. In 1965 richtte hij Provo mee op, in 1970 de Kabouters. Hij woont in Zutphen en schrijft over Europa, Rusland en zijn leven in de politiek.</p>
-    <nav id="nav"></nav>
+    <p class="lede">Schrijver en activist. In 1965 richtte hij Provo mee op, in 1970 de Kabouters. Nu woont hij in Zutphen en schrijft hij over Poetins oorlog, Trump en de toekomst van Europa.</p>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
   </div>
 </header>
 <main class="wrap">
-  <h2>Berichten</h2>
-  <div class="archive" id="posts"></div>
-  <a class="more" href="berichten.html">Alle berichten</a>
+  <section class="book-feature" aria-labelledby="boek-kop">
+    <a class="cover" href="boek.html"><img src="images/boek/aanval-op-europa.jpg" alt="Omslag van De aanval op Europa, tussen Trump en Poetin"></a>
+    <div>
+      <p class="kicker">Nieuw boek, mei 2026</p>
+      <h2 id="boek-kop"><a href="boek.html">De aanval op Europa</a></h2>
+      <p class="sub">Tussen Trump en Poetin</p>
+      <p>Trump en Poetin vallen Europa van twee kanten aan. In dit pamflet legt Roel uit wat de twee verbindt, hoe Europa zich kan verdedigen, en roept hij op tot de Verenigde Staten van Europa.</p>
+      <p class="actions"><a href="boek.html">Over het boek</a> <a href="mailto:roelvduijn@planet.nl?subject=Bestelling%20De%20aanval%20op%20Europa">Bestel een gesigneerd exemplaar</a></p>
+    </div>
+  </section>
 
-  <h2>Uit het archief</h2>
-  <div class="archive" id="archive"></div>
-  <a class="more" href="archief.html">Alle artikelen uit het archief</a>
+  <section aria-labelledby="rr-kop">
+    <h2 id="rr-kop"><a href="rusland.html">Rusland en Roel</a></h2>
+    <p class="intro">Roels doorlopende reeks over Poetins oorlog, Trump en Europa.</p>
+    <div class="archive" id="series"></div>
+    <a class="more" href="rusland.html">Alle afleveringen</a>
+  </section>
 
-  <h2>Foto's</h2>
-  <div class="gallery">
-    <figure><img src="images/portret-2008.jpg" alt="Roel van Duijn op het podium bij GroenLinks, 2008" style="object-position:center"><figcaption>Op het podium bij GroenLinks, 2008<span>Green Bill, CC BY 3.0</span></figcaption></figure>
-    <figure><img src="images/kabouters-1971.jpg" alt="Guy Kilian, Roel van Duijn en Peter Hakkenberg van Gaasbeek"><figcaption>Met de Kabouters, 1971<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
-    <figure><img src="images/fiets-1975.jpg" alt="Van Duijn op de fiets, gevolgd door witkarren"><figcaption>Op de fiets, gevolgd door witkarren, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
-    <figure><img src="images/sprookje-1975.jpg" alt="Van Duijn leest een sprookje voor"><figcaption>Leest een sprookje voor, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
-    <figure><img src="images/bijlmer-1982.jpg" alt="Roel van Duijn op het balkon van zijn flat in de Bijlmer"><figcaption>Op zijn balkon in de Bijlmer, 1982<span>Hans van Dijk / Anefo, CC0</span></figcaption></figure>
-  </div>
+  <section aria-labelledby="ber-kop">
+    <h2 id="ber-kop">Verder op Facebook</h2>
+    <div class="archive" id="posts"></div>
+    <a class="more" href="berichten.html">Alle berichten</a>
+  </section>
+
+  <section aria-labelledby="arch-kop">
+    <h2 id="arch-kop">Uit het archief</h2>
+    <p class="intro">Artikelen van de oude website, 2009 tot 2019.</p>
+    <div class="archive" id="archive"></div>
+    <a class="more" href="archief.html">Het hele archief</a>
+  </section>
+
+  <section aria-labelledby="foto-kop">
+    <h2 id="foto-kop">Foto's</h2>
+    <div class="gallery">
+      <figure><img src="images/kabouters-1971.jpg" alt="Guy Kilian, Roel van Duijn en Peter Hakkenberg van Gaasbeek" loading="lazy"><figcaption>Met de Kabouters, 1971<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
+      <figure><img src="images/fiets-1975.jpg" alt="Van Duijn op de fiets, gevolgd door witkarren" loading="lazy"><figcaption>Op de fiets, gevolgd door witkarren, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
+      <figure><img src="images/sprookje-1975.jpg" alt="Van Duijn leest een sprookje voor" loading="lazy"><figcaption>Leest een sprookje voor, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
+      <figure><img src="images/bijlmer-1982.jpg" alt="Roel van Duijn op het balkon van zijn flat in de Bijlmer" loading="lazy"><figcaption>Op zijn balkon in de Bijlmer, 1982<span>Hans van Dijk / Anefo, CC0</span></figcaption></figure>
+      <figure><img src="images/portret-2008.jpg" alt="Roel van Duijn op het podium bij GroenLinks, 2008" style="object-position:center" loading="lazy"><figcaption>Op het podium bij GroenLinks, 2008<span>Green Bill, CC BY 3.0</span></figcaption></figure>
+    </div>
+  </section>
 </main>
-<footer>
-  <div class="wrap">
-    roelvanduijn.nl<br>
-    Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.
-  </div>
-</footer>
-<script src="posts.js?v=4"></script>
+<script src="posts.js?v=5"></script>
 <script>
-fetch('posts.json').then(r => r.json()).then(posts => renderPosts(document.getElementById('posts'), posts.slice(0, 5)));
-
+loadPosts().then(posts => {
+  const series = posts.filter(p => p.series);
+  renderPosts(document.getElementById('series'), series.slice(0, 3), { numbered: true });
+  renderPosts(document.getElementById('posts'), posts.filter(p => !p.series).slice(0, 4));
+});
 const fmt = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
 fetch('articles.json').then(r => r.json()).then(list => {
   const el = document.getElementById('archive');
-  for (const a of list.slice(0, 8)) {
+  for (const a of list.slice(0, 4)) {
     const tmp = document.createElement('div'); tmp.innerHTML = a.html;
     const text = tmp.textContent.replace(/\s+/g, ' ').trim();
     const item = document.createElement('a');
@@ -60,11 +83,17 @@ fetch('articles.json').then(r => r.json()).then(list => {
     item.innerHTML = '<time></time><h3></h3><p></p>';
     item.querySelector('time').textContent = fmt(a.date);
     item.querySelector('h3').textContent = a.title;
-    item.querySelector('p').textContent = text.length > 160 ? text.slice(0, 160) + '…' : text;
+    item.querySelector('p').textContent = text.length > 160 ? text.slice(0, 160).replace(/\s\S*$/, '') + '…' : text;
     el.append(item);
   }
 });
 </script>
-<script src="nav.js?v=4"></script>
+<footer>
+  <div class="wrap">
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    <p>Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige historische foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.</p>
+  </div>
+</footer>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

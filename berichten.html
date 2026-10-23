@@ -5,27 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Berichten – Roel van Duijn</title>
+<meta name="description" content="Wat Roel van Duijn op Facebook schrijft, van nieuw naar oud.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap">
     <a class="home" href="./">Roel van Duijn</a>
-    <nav id="nav"></nav>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
   </div>
 </header>
 <main class="wrap archive">
-  <h2>Berichten</h2>
+  <h1 class="page-title">Berichten</h1>
   <p class="intro">Wat Roel op Facebook schrijft, van nieuw naar oud.</p>
+  <div class="filters" role="group" aria-label="Toon berichten">
+    <button type="button" data-f="alles" aria-pressed="true">Alles</button>
+    <button type="button" data-f="rusland" aria-pressed="false">Rusland en Roel</button>
+    <button type="button" data-f="boek" aria-pressed="false">Over het boek</button>
+    <button type="button" data-f="overig" aria-pressed="false">Overig</button>
+  </div>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=4"></script>
+<script src="posts.js?v=5"></script>
 <script>
-fetch('posts.json').then(r => r.json()).then(posts => renderPosts(document.getElementById('list'), posts, true));
+const FILTERS = { alles: () => true, rusland: p => p.series, boek: isBook, overig: p => !p.series && !isBook(p) };
+loadPosts().then(posts => {
+  const buttons = document.querySelectorAll('.filters button');
+  const show = f => {
+    if (!FILTERS[f]) f = 'alles';
+    buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.f === f));
+    renderPosts(document.getElementById('list'), posts.filter(FILTERS[f]), { byYear: true });
+  };
+  buttons.forEach(b => b.addEventListener('click', () => { history.replaceState(null, '', '#' + b.dataset.f); show(b.dataset.f); }));
+  show(location.hash.slice(1));
+});
 </script>
-<script src="nav.js?v=4"></script>
+<footer>
+  <div class="wrap">
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    
+  </div>
+</footer>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

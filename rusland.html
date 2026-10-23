@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rusland en Roel – Roel van Duijn</title>
+<meta name="description" content="Rusland en Roel: de doorlopende reeks van Roel van Duijn over Poetins oorlog, Trump en Europa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="home" href="./">Roel van Duijn</a>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
+  </div>
+</header>
+<main class="wrap archive">
+  <h1 class="page-title">Rusland en Roel</h1>
+  <p class="intro">Roels doorlopende reeks over Poetins oorlog tegen Oekraïne, Trump en de toekomst van Europa. Hij schrijft de afleveringen op Facebook. Hier staan ze op nummer, de nieuwste bovenaan.</p>
+  <p class="intro">Uit deze reeks groeide zijn boek <a href="boek.html">De aanval op Europa</a>.</p>
+  <div id="list"></div>
+</main>
+<script src="posts.js?v=5"></script>
+<script>
+loadPosts().then(posts => renderPosts(document.getElementById('list'), posts.filter(p => p.series).sort((a, b) => seriesNo(b) - seriesNo(a)), { numbered: true }));
+</script>
+<footer>
+  <div class="wrap">
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    
+  </div>
+</footer>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

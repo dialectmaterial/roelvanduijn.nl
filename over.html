@@ -4,27 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Meer – Roel van Duijn</title>
+<title>Over Roel – Roel van Duijn</title>
+<meta name="description" content="Over Roel van Duijn: biografie, politiek, familie, films en publicaties.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap">
     <a class="home" href="./">Roel van Duijn</a>
-    <nav id="nav"></nav>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
   </div>
 </header>
 <main class="wrap archive">
-  <h2>Meer</h2>
-  <p class="intro">De overige pagina's van de oude website.</p>
+  <h1 class="page-title">Over Roel</h1>
+  <div class="about">
+    <span class="print"><img src="images/portret-2008.jpg" alt="Roel van Duijn in 2008"></span>
+    <p>Roel van Duijn werd in 1943 in Den Haag geboren. Hij richtte in 1965 Provo mee op en in 1970 de Kabouters, en zette zich daarna in voor groene politiek, in Amsterdam en in Europa. Hij schreef een groot aantal boeken over politiek en geschiedenis. Hij woont in Zutphen.</p>
+  </div>
+  <a class="more" href="artikel.html?pagina=2">Lees zijn biografie</a>
+  <h2>Meer over Roel</h2>
   <div id="list"></div>
 </main>
 <script>
-// Pages not in the main menu, in a sensible order.
-const ORDER = ['Publicaties', 'Politiek', 'Films – Documentaires – Uitzendingen', 'Chopin', 'Frédéric Chopin 200 jaar geleden geboren', 'Familie', 'Diepvriesfiguur', 'Werkstukken studenten', 'Links', 'English Page'];
+// The other pages of the old site, in a sensible order.
+const ORDER = ['Politiek', 'Publicaties', 'Films – Documentaires – Uitzendingen', 'Familie', 'Chopin', 'Frédéric Chopin 200 jaar geleden geboren', 'Diepvriesfiguur', 'Werkstukken studenten', 'Links', 'English Page'];
 fetch('pages.json').then(r => r.json()).then(pages => {
   const el = document.getElementById('list');
   for (const title of ORDER) {
@@ -41,6 +47,12 @@ fetch('pages.json').then(r => r.json()).then(pages => {
   }
 });
 </script>
-<script src="nav.js?v=4"></script>
+<footer>
+  <div class="wrap">
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    
+  </div>
+</footer>
+<script src="nav.js?v=5"></script>
 </body>
 </html>
