@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <header class="topbar">
@@ -29,7 +29,7 @@
   </div>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=5"></script>
+<script src="posts.js?v=7"></script>
 <script>
 const FILTERS = { alles: () => true, rusland: p => p.series, boek: isBook, overig: p => !p.series && !isBook(p) };
 loadPosts().then(posts => {
@@ -49,6 +49,6 @@ loadPosts().then(posts => {
     
   </div>
 </footer>
-<script src="nav.js?v=5"></script>
+<script src="nav.js?v=7"></script>
 </body>
 </html>

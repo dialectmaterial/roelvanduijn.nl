@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Rusland en Roel – Roel van Duijn</title>
-<meta name="description" content="Rusland en Roel: de doorlopende reeks van Roel van Duijn over Poetins oorlog, Trump en Europa.">
+<meta name="description" content="Rusland en Roel: de doorlopende reeks van Roel van Duijn over Poetins oorlog tegen Oekraïne, Trump en Europa. Zoek op onderwerp of thema.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <header class="topbar">
@@ -20,13 +20,60 @@
 </header>
 <main class="wrap archive">
   <h1 class="page-title">Rusland en Roel</h1>
-  <p class="intro">Roels doorlopende reeks over Poetins oorlog tegen Oekraïne, Trump en de toekomst van Europa. Hij schrijft de afleveringen op Facebook. Hier staan ze op nummer, de nieuwste bovenaan.</p>
-  <p class="intro">Uit deze reeks groeide zijn boek <a href="boek.html">De aanval op Europa</a>.</p>
+  <p class="intro">Roels doorlopende reeks over Poetins oorlog tegen Oekraïne, Trump en de toekomst van Europa, geschreven op Facebook. Zoek op een woord of kies een thema. Uit deze reeks groeide zijn boek <a href="boek.html">De aanval op Europa</a>.</p>
+
+  <form class="finder" role="search" onsubmit="return false">
+    <label for="q">Zoek in de reeks</label>
+    <input id="q" type="search" placeholder="Bijvoorbeeld Krim, drones of Orbán" autocomplete="off">
+  </form>
+  <div class="themes" role="group" aria-label="Thema's" id="themes"></div>
+  <p class="theme-desc" id="theme-desc" hidden></p>
+  <p class="count" id="count" aria-live="polite"></p>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=5"></script>
+<script src="posts.js?v=7"></script>
 <script>
-loadPosts().then(posts => renderPosts(document.getElementById('list'), posts.filter(p => p.series).sort((a, b) => seriesNo(b) - seriesNo(a)), { numbered: true }));
+Promise.all([loadPosts(), fetch('themes.json?v=' + DATA_V).then(r => r.json())]).then(([posts, themes]) => {
+  const series = posts.filter(p => p.series).sort((a, b) => seriesNo(b) - seriesNo(a));
+  const names = Object.fromEntries(themes.map(t => [t.slug, t.name]));
+  const q = document.getElementById('q'), box = document.getElementById('themes');
+  const params = new URLSearchParams(location.search);
+  let theme = names[params.get('thema')] ? params.get('thema') : '';
+  q.value = params.get('q') || '';
+
+  const button = (slug, label, n) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.dataset.slug = slug;
+    b.innerHTML = '<span></span> <small></small>';
+    b.querySelector('span').textContent = label; b.querySelector('small').textContent = n;
+    b.addEventListener('click', () => { theme = theme === slug ? '' : slug; update(); });
+    box.append(b);
+  };
+  button('', 'Alle thema\'s', series.length);
+  for (const t of themes) {
+    const n = series.filter(p => (p.themes || []).includes(t.slug)).length;
+    if (n) button(t.slug, t.name, n);
+  }
+
+  function update() {
+    const terms = fold(q.value).split(/\s+/).filter(w => w.length > 1);
+    const found = series.filter(p => (!theme || (p.themes || []).includes(theme)) && matches(p, terms));
+    box.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.slug === theme));
+    const desc = document.getElementById('theme-desc');
+    desc.hidden = !theme; desc.textContent = theme ? themes.find(t => t.slug === theme).desc : '';
+    const what = found.length === 1 ? '1 aflevering' : found.length + ' afleveringen';
+    document.getElementById('count').textContent = found.length
+      ? what + (terms.length ? ' met ‘' + q.value.trim() + '’' : '') + (theme ? ' over ' + names[theme].toLowerCase() : '')
+      : 'Geen afleveringen gevonden' + (terms.length ? ' met ‘' + q.value.trim() + '’' : '') + '. Probeer een ander woord' + (theme ? ' of kies alle thema\'s.' : '.');
+    renderPosts(document.getElementById('list'), found, { numbered: true, terms, themes: names });
+    const url = new URLSearchParams();
+    if (q.value.trim()) url.set('q', q.value.trim());
+    if (theme) url.set('thema', theme);
+    history.replaceState(null, '', url.toString() ? '?' + url : location.pathname);
+  }
+  q.addEventListener('input', update);
+  update();
+});
 </script>
 <footer>
   <div class="wrap">
@@ -34,6 +81,6 @@ loadPosts().then(posts => renderPosts(document.getElementById('list'), posts.fil
     
   </div>
 </footer>
-<script src="nav.js?v=5"></script>
+<script src="nav.js?v=7"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <header class="topbar">
@@ -26,7 +26,7 @@
     <nav class="series-nav" aria-label="Rusland en Roel" hidden></nav>
   </article>
 </main>
-<script src="posts.js?v=5"></script>
+<script src="posts.js?v=7"></script>
 <script>
 const q = new URLSearchParams(location.search);
 if (q.has('bericht')) loadPosts().then(list => {
@@ -64,6 +64,16 @@ if (q.has('bericht')) loadPosts().then(list => {
       a.querySelector('strong').textContent = postTitle(x);
       nav.append(a);
     }
+    if (p.themes && p.themes.length) fetch('themes.json?v=7').then(r => r.json()).then(themes => {
+      const line = document.createElement('p'); line.className = 'themes-line';
+      line.append("Thema's in de reeks: ");
+      p.themes.forEach((slug, i) => {
+        const t = themes.find(x => x.slug === slug); if (!t) return;
+        const a = document.createElement('a'); a.href = 'rusland.html?thema=' + slug; a.textContent = t.name;
+        line.append(i ? ', ' : '', a);
+      });
+      document.querySelector('.orig').after(line);
+    });
     const all_ = document.createElement('a'); all_.href = 'rusland.html'; all_.className = 'all'; all_.textContent = 'Alle afleveringen van Rusland en Roel';
     nav.append(all_);
     nav.hidden = false;
@@ -81,6 +91,6 @@ if (!q.has('bericht')) fetch(isPage ? 'pages.json' : 'articles.json').then(r => 
   document.querySelector('.orig').textContent = 'Oorspronkelijk gepubliceerd op roelvanduijn.nl';
 });
 </script>
-<script src="nav.js?v=5"></script>
+<script src="nav.js?v=7"></script>
 </body>
 </html>

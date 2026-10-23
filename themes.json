@@ -1,0 +1,42 @@
+[
+ {
+  "slug": "front",
+  "name": "De oorlog in Oekraïne",
+  "desc": "Het front, de drones, de offensieven en de Oekraïners zelf."
+ },
+ {
+  "slug": "poetin",
+  "name": "Poetin en Rusland",
+  "desc": "Wat drijft Poetin, en hoe staat het met het Russische regime en de economie."
+ },
+ {
+  "slug": "trump",
+  "name": "Trump en Amerika",
+  "desc": "Trumps omgang met Poetin, zijn aanval op Europa en de crisis in de VS."
+ },
+ {
+  "slug": "europa",
+  "name": "Europa verdedigt zich",
+  "desc": "De EU, de NAVO, defensie en Roels pleidooi voor de Verenigde Staten van Europa."
+ },
+ {
+  "slug": "rechts",
+  "name": "Extreemrechts en handlangers",
+  "desc": "Orbán, de AfD, Wilders en andere vrienden van Poetin en Trump in Europa."
+ },
+ {
+  "slug": "vrede",
+  "name": "Onderhandelen over vrede",
+  "desc": "Toppen, ultimatums, staakt-het-vurens en de vraag wat vrede eigenlijk betekent."
+ },
+ {
+  "slug": "geschiedenis",
+  "name": "Lessen uit de geschiedenis",
+  "desc": "Hitler, Stalin, de Tweede Wereldoorlog en Roels eigen herinneringen als spiegel voor nu."
+ },
+ {
+  "slug": "wereld",
+  "name": "China en de rest van de wereld",
+  "desc": "China, Taiwan, het Midden-Oosten en de nieuwe wereldorde."
+ }
+]

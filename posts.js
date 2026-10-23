@@ -2,10 +2,11 @@
 // berichten.html, rusland.html and boek.html.
 const fmtDate = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
 const BOOK = /aanval op europa|eurotariaat/i;
+const DATA_V = '6';  // bump when posts.json or themes.json change
 
 const seriesNo = p => p.series ? Number(p.series.match(/\d+/)[0]) : null;
 const isBook = p => BOOK.test((p.title || '') + ' ' + (p.subtitle || '') + ' ' + p.text);
-const loadPosts = () => fetch('posts.json?v=5').then(r => r.json());
+const loadPosts = () => fetch('posts.json?v=' + DATA_V).then(r => r.json());
 
 function postTitle(p) {
   if (p.title) return p.title;
@@ -18,8 +19,32 @@ function excerpt(p, n = 170) {
   return t.length > n ? t.slice(0, n).replace(/\s\S*$/, '') + '…' : t;
 }
 
+// Search helpers: case- and accent-insensitive ('orban' finds 'Orbán').
+const fold = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const escapeHtml = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const searchText = p => [p.title, p.subtitle, p.text].filter(Boolean).join('\n');
+const matches = (p, terms) => { const t = fold(searchText(p)); return terms.every(w => t.includes(w)); };
+
+// A short passage around the first match, with every term marked.
+function snippet(p, terms, width = 110) {
+  const text = searchText(p).replace(/\s+/g, ' '), folded = fold(text);
+  const at = Math.min(...terms.map(w => folded.indexOf(w)).filter(i => i >= 0));
+  let start = Math.max(0, at - width / 2), end = Math.min(text.length, at + width * 1.4);
+  if (start > 0) { const sp = text.indexOf(' ', start); if (sp >= 0 && sp < at) start = sp + 1; }  // begin at a whole word
+  if (end < text.length) { const sp = text.lastIndexOf(' ', end); if (sp > at) end = sp; }
+  let out = '', i = start;
+  const f = folded.slice(start, end);
+  const hits = [];
+  for (const w of terms) for (let j = f.indexOf(w); j >= 0; j = f.indexOf(w, j + 1)) hits.push([start + j, start + j + w.length]);
+  hits.sort((a, b) => a[0] - b[0]);
+  for (const [a, b] of hits) { if (a < i) continue; out += escapeHtml(text.slice(i, a)) + '<mark>' + escapeHtml(text.slice(a, b)) + '</mark>'; i = b; }
+  out += escapeHtml(text.slice(i, end));
+  return (start > 0 ? '…' : '') + out.trim() + (end < text.length ? '…' : '');
+}
+
 // One row in a list. With numbered: true, a series column shows its number instead of the date.
-function postCard(p, { numbered = false } = {}) {
+// terms: search words to show a marked passage instead of the opening; themes: slug -> name.
+function postCard(p, { numbered = false, terms = null, themes = null } = {}) {
   const a = document.createElement('a');
   a.className = 'item' + (p.images.length ? ' post-item' : '') + (numbered ? ' numbered' : '');
   a.href = 'artikel.html?bericht=' + p.id;
@@ -34,8 +59,17 @@ function postCard(p, { numbered = false } = {}) {
   } else if (p.series) {
     const s = document.createElement('span'); s.className = 'series'; s.textContent = p.series; a.append(s);
   }
-  const text = excerpt(p);
-  if (text) { const e = document.createElement('p'); e.textContent = text; a.append(e); }
+  if (themes && p.themes && p.themes.length) {
+    const t = document.createElement('span'); t.className = 'tags';
+    t.textContent = p.themes.map(s => themes[s]).join(', ');
+    a.append(t);
+  }
+  if (terms && terms.length) {
+    const e = document.createElement('p'); e.innerHTML = snippet(p, terms); a.append(e);
+  } else {
+    const text = excerpt(p);
+    if (text) { const e = document.createElement('p'); e.textContent = text; a.append(e); }
+  }
   if (p.images.length) {
     const s = document.createElement('span'); s.className = 'print';
     const i = document.createElement('img'); i.src = p.images[0].src; i.alt = ''; i.loading = 'lazy';
@@ -44,7 +78,7 @@ function postCard(p, { numbered = false } = {}) {
   return a;
 }
 
-function renderPosts(el, posts, { byYear = false, numbered = false } = {}) {
+function renderPosts(el, posts, { byYear = false, numbered = false, terms = null, themes = null } = {}) {
   el.replaceChildren();
   let year;
   for (const p of posts) {
@@ -52,6 +86,6 @@ function renderPosts(el, posts, { byYear = false, numbered = false } = {}) {
     if (byYear && y !== year) {
       const h = document.createElement('h3'); h.className = 'year'; h.textContent = year = y; el.append(h);
     }
-    el.append(postCard(p, { numbered }));
+    el.append(postCard(p, { numbered, terms, themes }));
   }
 }
