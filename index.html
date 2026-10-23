@@ -62,13 +62,6 @@
     <a class="more" href="berichten.html">Alle berichten</a>
   </section>
 
-  <section aria-labelledby="arch-kop">
-    <h2 id="arch-kop">Uit het archief</h2>
-    <p class="intro">Artikelen van de oude website, 2009 tot 2019.</p>
-    <div class="archive" id="archive"></div>
-    <a class="more" href="archief.html">Het hele archief</a>
-  </section>
-
   <section aria-labelledby="foto-kop">
     <h2 id="foto-kop">Foto's</h2>
     <div class="gallery">
@@ -86,21 +79,6 @@ loadPosts().then(posts => {
   const series = posts.filter(p => p.series);
   renderPosts(document.getElementById('series'), series.slice(0, 3), { numbered: true });
   renderPosts(document.getElementById('posts'), posts.filter(p => !p.series).slice(0, 4));
-});
-const fmt = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
-fetch('articles.json').then(r => r.json()).then(list => {
-  const el = document.getElementById('archive');
-  for (const a of list.slice(0, 4)) {
-    const tmp = document.createElement('div'); tmp.innerHTML = a.html;
-    const text = tmp.textContent.replace(/\s+/g, ' ').trim();
-    const item = document.createElement('a');
-    item.className = 'item'; item.href = 'artikel.html?id=' + a.id;
-    item.innerHTML = '<time></time><h3></h3><p></p>';
-    item.querySelector('time').textContent = fmt(a.date);
-    item.querySelector('h3').textContent = a.title;
-    item.querySelector('p').textContent = text.length > 160 ? text.slice(0, 160).replace(/\s\S*$/, '') + '…' : text;
-    el.append(item);
-  }
 });
 </script>
 <footer>
