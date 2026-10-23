@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
 <header class="topbar">
@@ -33,7 +33,7 @@
     <a href="personen.html">Personen</a>
   </nav>
 
-  <p class="intro">Roels doorlopende reeks over Poetins oorlog tegen Oekraïne, Trump en de toekomst van Europa, geschreven op Facebook. Zoek op een woord of kies een thema. Uit deze reeks groeide zijn boek <a href="boek.html">De aanval op Europa</a>.</p>
+  <p class="intro">Roels doorlopende reeks over Poetins oorlog tegen Oekraïne, Trump en de toekomst van Europa. Zoek op een woord of kies een thema. Uit deze reeks groeide zijn boek <a href="boek.html">De aanval op Europa</a>.</p>
   <p class="intro">Afleveringen verschijnen ook als column in <a href="https://dekanttekening.nl/tag/rusland/">De Kanttekening</a> en op <a href="https://krapuul.nl/author/roel-van-duijn/">Krapuul</a>. Interviews met Roel over Rusland en Oekraïne vind je onder <a href="over.html#pers">In de pers</a>.</p>
 
   <section class="start" id="start" hidden>
@@ -52,7 +52,7 @@
   <p class="count" id="count" aria-live="polite"></p>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=18"></script>
+<script src="posts.js?v=19"></script>
 <script>
 Promise.all([loadPosts(), fetch('themes.json?v=' + DATA_V).then(r => r.json()), fetch('series.json?v=' + DATA_V).then(r => r.json())]).then(([posts, themes, extra]) => {
   const series = posts.filter(p => p.series).sort((a, b) => seriesNo(b) - seriesNo(a));
@@ -110,10 +110,10 @@ Promise.all([loadPosts(), fetch('themes.json?v=' + DATA_V).then(r => r.json()), 
 </script>
 <footer>
   <div class="wrap">
-    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
+    <p>Roel van Duijn. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
     
   </div>
 </footer>
-<script src="nav.js?v=18"></script>
+<script src="nav.js?v=19"></script>
 </body>
 </html>

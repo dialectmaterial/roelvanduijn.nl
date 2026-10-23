@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
 <header class="topbar">
@@ -36,7 +36,7 @@
   <div id="list"></div>
   <button type="button" class="more-btn" id="more" hidden>Toon meer resultaten</button>
 </main>
-<script src="posts.js?v=18"></script>
+<script src="posts.js?v=19"></script>
 <script>
 const KINDS = ['Roel en Rusland', 'Bericht', 'Archief', 'Boek', 'In de pers', 'Pagina'];
 const PLURAL = { 'Roel en Rusland': 'Roel en Rusland', Bericht: 'Berichten', Archief: 'Archief', Boek: 'Boeken', 'In de pers': 'In de pers', Pagina: "Pagina's" };
@@ -86,7 +86,7 @@ function update() {
   for (const it of found.slice(0, shown)) {
     const a = document.createElement('a'); a.className = 'item plain hit'; a.href = it.u;
     a.innerHTML = '<span class="series"></span><h3></h3><p></p>';
-    a.querySelector('.series').textContent = [it.k === 'Bericht' ? 'Facebook' : it.k, it.s, it.d && fmtDate(it.d)].filter(Boolean).join(', ');
+    a.querySelector('.series').textContent = [it.k, it.s, it.d && fmtDate(it.d)].filter(Boolean).join(', ');
     a.querySelector('h3').textContent = it.t;
     a.querySelector('p').innerHTML = snippet({ text: it.x }, terms);
     list.append(a);
@@ -100,10 +100,10 @@ more.addEventListener('click', () => { shown += 30; update(); });
 </script>
 <footer>
   <div class="wrap">
-    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
+    <p>Roel van Duijn. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
     
   </div>
 </footer>
-<script src="nav.js?v=18"></script>
+<script src="nav.js?v=19"></script>
 </body>
 </html>

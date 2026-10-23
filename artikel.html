@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
 <header class="topbar">
@@ -28,7 +28,7 @@
     <nav class="series-nav" aria-label="Roel en Rusland" hidden></nav>
   </article>
 </main>
-<script src="posts.js?v=18"></script>
+<script src="posts.js?v=19"></script>
 <script>
 const q = new URLSearchParams(location.search);
 if (q.has('bericht')) loadPosts().then(list => {
@@ -51,8 +51,9 @@ if (q.has('bericht')) loadPosts().then(list => {
     const a = document.createElement('a'); a.href = href; a.className = 'ext';
     a.textContent = 'Link: ' + new URL(href).hostname.replace(/^www\./, ''); body.append(a);
   }
-  document.querySelector('.orig').innerHTML = 'Oorspronkelijk geplaatst op <a href="https://www.facebook.com/roelvduijn">Facebook</a>.'
-    + (isBook(p) ? ' Meer over het boek: <a href="boek.html">De aanval op Europa</a>.' : '');
+  const orig = document.querySelector('.orig');
+  if (isBook(p)) orig.innerHTML = 'Meer over het boek: <a href="boek.html">De aanval op Europa</a>.';
+  else orig.classList.add('empty');
   // Within the series: links to the previous and next column.
   if (p.series) {
     const n = seriesNo(p), all = list.filter(x => x.series);
@@ -136,6 +137,6 @@ if (!q.has('bericht')) fetch(isPage ? 'pages.json' : 'articles.json').then(r => 
   document.querySelector('.orig').textContent = 'Oorspronkelijk gepubliceerd op roelvanduijn.nl';
 });
 </script>
-<script src="nav.js?v=18"></script>
+<script src="nav.js?v=19"></script>
 </body>
 </html>
