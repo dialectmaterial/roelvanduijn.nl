@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 <header class="topbar">
@@ -35,24 +35,12 @@
   </form>
   <p><a class="more" href="./">Naar de voorpagina</a></p>
 </main>
-<script>
-// Old liefdesverdriet.info addresses ("/wraak/wraak 03 mijn afrekening.htm"): find the page by its file name.
-(() => {
-  const file = decodeURIComponent(location.pathname.split('/').pop()).replace(/\.html?$/i, '');
-  if (!file) return;
-  const slug = file.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  fetch('ld.json').then(r => r.json()).then(({ pages }) => {
-    const hit = pages.find(p => p.id.endsWith('-' + slug));
-    if (hit) location.replace('/liefdesverdriet.html?pagina=' + hit.id);
-  });
-})();
-</script>
 <footer>
   <div class="wrap">
     <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
     
   </div>
 </footer>
-<script src="nav.js?v=13"></script>
+<script src="nav.js?v=14"></script>
 </body>
 </html>

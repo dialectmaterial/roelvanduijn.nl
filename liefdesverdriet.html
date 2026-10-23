@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="nl">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
@@ -16,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 <header class="topbar">
@@ -42,7 +43,7 @@
     <nav class="series-nav" aria-label="Vorige en volgende" id="pn"></nav>
   </article>
 </main>
-<script src="posts.js?v=13"></script>
+<script src="posts.js?v=14"></script>
 <script>
 const label = p => (p.no ? p.no + '. ' : '') + p.title;
 fetch('ld.json?v=' + DATA_V).then(r => r.json()).then(({ sections, pages }) => {
@@ -93,6 +94,6 @@ fetch('ld.json?v=' + DATA_V).then(r => r.json()).then(({ sections, pages }) => {
     
   </div>
 </footer>
-<script src="nav.js?v=13"></script>
+<script src="nav.js?v=14"></script>
 </body>
 </html>

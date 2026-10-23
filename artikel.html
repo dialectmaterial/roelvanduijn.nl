@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 <header class="topbar">
@@ -27,7 +27,7 @@
     <nav class="series-nav" aria-label="Rusland en Roel" hidden></nav>
   </article>
 </main>
-<script src="posts.js?v=13"></script>
+<script src="posts.js?v=14"></script>
 <script>
 const q = new URLSearchParams(location.search);
 if (q.has('bericht')) loadPosts().then(list => {
@@ -65,7 +65,7 @@ if (q.has('bericht')) loadPosts().then(list => {
       a.querySelector('strong').textContent = postTitle(x);
       nav.append(a);
     }
-    if (p.themes && p.themes.length) fetch('themes.json?v=13').then(r => r.json()).then(themes => {
+    if (p.themes && p.themes.length) fetch('themes.json?v=14').then(r => r.json()).then(themes => {
       const line = document.createElement('p'); line.className = 'themes-line';
       line.append("Thema's in de reeks: ");
       p.themes.forEach((slug, i) => {
@@ -96,6 +96,6 @@ if (!q.has('bericht')) fetch(isPage ? 'pages.json' : 'articles.json').then(r => 
   document.querySelector('.orig').textContent = 'Oorspronkelijk gepubliceerd op roelvanduijn.nl';
 });
 </script>
-<script src="nav.js?v=13"></script>
+<script src="nav.js?v=14"></script>
 </body>
 </html>

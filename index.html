@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 <header class="hero">
@@ -69,12 +69,6 @@
     <a class="more" href="archief.html">Het hele archief</a>
   </section>
 
-  <section aria-labelledby="ld-kop">
-    <h2 id="ld-kop"><a href="liefdesverdriet.html">Liefdesverdriet</a></h2>
-    <p class="intro">Van 2005 tot 2015 verzamelde Roel op liefdesverdriet.info honderd verhalen van lezers, met gedichten, brieven, raad en onderzoek met de UvA.</p>
-    <p class="actions"><a href="liefdesverdriet.html#verhalen">Lees de verhalen</a> <a href="liefdesverdriet.html#hulp">Wat kun je doen?</a> <a href="liefdesverdriet.html#onderzoek">Het onderzoek</a></p>
-  </section>
-
   <section aria-labelledby="foto-kop">
     <h2 id="foto-kop">Foto's</h2>
     <div class="gallery">
@@ -86,7 +80,7 @@
     </div>
   </section>
 </main>
-<script src="posts.js?v=13"></script>
+<script src="posts.js?v=14"></script>
 <script>
 loadPosts().then(posts => {
   const series = posts.filter(p => p.series);
@@ -115,6 +109,6 @@ fetch('articles.json').then(r => r.json()).then(list => {
     <p>Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige historische foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.</p>
   </div>
 </footer>
-<script src="nav.js?v=13"></script>
+<script src="nav.js?v=14"></script>
 </body>
 </html>

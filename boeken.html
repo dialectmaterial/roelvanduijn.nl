@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 <header class="topbar">
@@ -30,7 +30,7 @@
   <p class="intro">Alle boeken van Roel, van zijn eerste Provo-pamfletten tot zijn nieuwste boek. De meeste kun je bij hem bestellen, gesigneerd: <a href="mailto:roelvduijn@planet.nl?subject=Boek%20bestellen">mail Roel</a>.</p>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=13"></script>
+<script src="posts.js?v=14"></script>
 <script>
 fetch('books.json?v=' + DATA_V).then(r => r.json()).then(books => {
   const el = document.getElementById('list');
@@ -63,6 +63,6 @@ fetch('books.json?v=' + DATA_V).then(r => r.json()).then(books => {
     
   </div>
 </footer>
-<script src="nav.js?v=13"></script>
+<script src="nav.js?v=14"></script>
 </body>
 </html>
