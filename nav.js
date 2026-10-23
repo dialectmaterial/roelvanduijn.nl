@@ -1,14 +1,14 @@
 // Main menu, the same on every page.
 const NAV = [['./', 'Home'], ['rusland.html', 'Rusland en Roel'], ['boek.html', 'De aanval op Europa'], ['berichten.html', 'Berichten'],
-  ['artikel.html?pagina=11', 'Boeken'], ['archief.html', 'Archief'], ['over.html', 'Over Roel'], ['artikel.html?pagina=595', 'Contact']];
+  ['boeken.html', 'Boeken'], ['archief.html', 'Archief'], ['over.html', 'Over Roel'], ['artikel.html?pagina=595', 'Contact']];
 (() => {
   const nav = document.getElementById('nav');
   if (!nav) return;
   const here = location.pathname.split('/').pop() + location.search;
   const page = (here.match(/pagina=(\d+)/) || [])[1];
-  // Old-site pages other than Boeken and Contact live under Over Roel.
+  // Old-site pages other than Contact live under Over Roel (the old Boeken page is replaced by boeken.html).
   const current = href => href === here || (href === './' && (here === '' || here === 'index.html'))
-    || (href === 'over.html' && page && !['11', '595'].includes(page));
+    || (href === 'over.html' && page && page !== '595');
   for (const [href, label] of NAV) {
     const a = document.createElement('a'); a.href = href; a.textContent = label;
     if (current(href)) a.setAttribute('aria-current', 'page');

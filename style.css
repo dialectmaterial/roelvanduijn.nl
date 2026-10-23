@@ -189,3 +189,20 @@ footer p { margin: 0 0 8px; }
 mark { background: var(--leaf-paper); color: var(--ink); box-shadow: 0 2px 0 var(--leaf); padding: 0 1px; }
 .post .themes-line { margin-top: 10px; font-size: .95rem; color: var(--ink-soft); }
 .archive a.item.press h3 { font-size: 1.15rem; }
+
+/* Bibliography. */
+.archive .book-row h3 { font-style: italic; }
+.archive .book-row .sub { margin: 0; color: var(--ink); font-size: 1rem; font-style: normal; }
+.archive .book-row .note { margin: 2px 0 0; font-size: .95rem; }
+.archive .book-row.has-cover { grid-template-columns: 7.5rem 1fr 5rem; }
+.archive .book-row .mini-cover { grid-column: 3; grid-row: 1 / span 4; width: 100%; box-shadow: 4px 4px 0 var(--leaf-paper); }
+.archive .book-row:not(a) { display: grid; grid-template-columns: 7.5rem 1fr; gap: 4px 20px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.archive .book-row:not(a) > * { grid-column: 2; }
+.archive .book-row:not(a) > time { grid-column: 1; grid-row: 1 / span 4; }
+@media (max-width: 600px) {
+  .archive .book-row:not(a) { grid-template-columns: 3.4rem 1fr; gap: 2px 14px; }
+  .archive a.book-row, .archive a.book-row.has-cover { grid-template-columns: 3.4rem 1fr 4rem; gap: 2px 14px; }
+  .archive a.book-row > * { grid-column: 2; }
+  .archive a.book-row > time { grid-column: 1; grid-row: 1 / span 4; }
+  .archive a.book-row > .mini-cover { grid-column: 3; }
+}

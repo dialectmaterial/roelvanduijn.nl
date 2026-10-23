@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Boeken – Roel van Duijn</title>
+<meta name="description" content="Alle boeken van Roel van Duijn, van Het witte gevaar (1966) tot De aanval op Europa (2026).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="style.css?v=10">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="home" href="./">Roel van Duijn</a>
+    <nav id="nav" aria-label="Hoofdmenu"></nav>
+  </div>
+</header>
+<main class="wrap archive">
+  <h1 class="page-title">Boeken</h1>
+  <p class="intro">Alle boeken van Roel, van zijn eerste Provo-pamfletten tot zijn nieuwste boek. De meeste kun je bij hem bestellen, gesigneerd: <a href="mailto:roelvduijn@planet.nl?subject=Boek%20bestellen">mail Roel</a>.</p>
+  <div id="list"></div>
+</main>
+<script src="posts.js?v=10"></script>
+<script>
+fetch('books.json?v=' + DATA_V).then(r => r.json()).then(books => {
+  const el = document.getElementById('list');
+  let decade;
+  for (const b of books) {
+    const d = Math.floor(b.year / 10) * 10;
+    if (d !== decade) {
+      const h = document.createElement('h2'); h.className = 'year'; decade = d;
+      h.textContent = d + '–' + Math.min(d + 9, books[0].year);
+      el.append(h);
+    }
+    const row = document.createElement(b.url ? 'a' : 'div');
+    row.className = 'item book-row' + (b.cover ? ' has-cover' : '');
+    if (b.url) row.href = b.url;
+    row.innerHTML = '<time></time><h3></h3>';
+    row.querySelector('time').textContent = b.year;
+    row.querySelector('h3').textContent = b.title;
+    for (const [cls, text] of [['sub', b.subtitle], ['series', b.publisher], ['note', b.note]]) {
+      if (!text) continue;
+      const e = document.createElement(cls === 'series' ? 'span' : 'p'); e.className = cls; e.textContent = text; row.append(e);
+    }
+    if (b.cover) { const i = document.createElement('img'); i.src = b.cover; i.alt = ''; i.className = 'mini-cover'; row.append(i); }
+    el.append(row);
+  }
+});
+</script>
+<footer>
+  <div class="wrap">
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    
+  </div>
+</footer>
+<script src="nav.js?v=10"></script>
+</body>
+</html>
