@@ -20,7 +20,8 @@
 </header>
 <main class="wrap">
   <h2>Recente berichten</h2>
-  <div id="posts"></div>
+  <div class="archive" id="posts"></div>
+  <a class="more" href="berichten.html">Alle berichten →</a>
 
   <h2>Uit het archief</h2>
   <div class="archive" id="archive"></div>
@@ -41,20 +42,9 @@
     Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.
   </div>
 </footer>
+<script src="posts.js"></script>
 <script>
-fetch('posts.json').then(r => r.json()).then(posts => {
-  const el = document.getElementById('posts');
-  for (const p of posts) {
-    const a = document.createElement('article');
-    const d = new Date(p.date).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
-    a.innerHTML = `<time></time><p></p>`;
-    a.querySelector('time').textContent = d;
-    a.querySelector('p').textContent = p.text;
-    if (p.image) { const i = document.createElement('img'); i.src = p.image; i.alt = ''; a.append(i); }
-    if (p.link) { const l = document.createElement('a'); l.href = p.link; l.textContent = 'Bekijk op Facebook →'; a.append(l); }
-    el.append(a);
-  }
-});
+fetch('posts.json').then(r => r.json()).then(posts => renderPosts(document.getElementById('posts'), posts.slice(0, 5)));
 
 const fmt = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
 fetch('articles.json').then(r => r.json()).then(list => {

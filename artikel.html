@@ -20,11 +20,31 @@
     <p class="orig"></p>
   </article>
 </main>
+<script src="posts.js"></script>
 <script>
 const q = new URLSearchParams(location.search);
+if (q.has('bericht')) fetch('posts.json').then(r => r.json()).then(list => {
+  const p = list.find(x => x.id === q.get('bericht'));
+  if (!p) { document.querySelector('h1').textContent = 'Bericht niet gevonden'; return; }
+  document.title = postTitle(p) + ' – Roel van Duijn';
+  document.querySelector('time').textContent = (p.approx ? 'rond ' : '') + fmtDate(p.date) + (p.series ? ' · ' + p.series : '');
+  document.querySelector('h1').textContent = p.title || '';
+  const body = document.querySelector('.body');
+  if (p.subtitle) { const s = document.createElement('p'); s.className = 'subtitle'; s.textContent = p.subtitle; body.append(s); }
+  for (const para of p.text.split(/\n\s*\n|\n/)) {
+    if (!para.trim()) continue;
+    const el = document.createElement('p'); el.textContent = para.trim(); body.append(el);
+  }
+  for (const img of p.images) { const i = document.createElement('img'); i.src = img.src; i.alt = img.alt; body.append(i); }
+  for (const href of p.links) {
+    const a = document.createElement('a'); a.href = href; a.className = 'ext';
+    a.textContent = new URL(href).hostname.replace(/^www\./, '') + ' →'; body.append(a);
+  }
+  document.querySelector('.orig').innerHTML = 'Oorspronkelijk geplaatst op <a href="https://www.facebook.com/roelvduijn">Facebook</a>';
+});
 const isPage = q.has('pagina');
 const id = Number(isPage ? q.get('pagina') : q.get('id'));
-fetch(isPage ? 'pages.json' : 'articles.json').then(r => r.json()).then(list => {
+if (!q.has('bericht')) fetch(isPage ? 'pages.json' : 'articles.json').then(r => r.json()).then(list => {
   const a = list.find(x => x.id === id);
   if (!a) { document.querySelector('h1').textContent = 'Artikel niet gevonden'; return; }
   document.title = a.title + ' – Roel van Duijn';

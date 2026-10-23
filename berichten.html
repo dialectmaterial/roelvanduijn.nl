@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Berichten – Roel van Duijn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap"><a class="home" href="./">Roel van Duijn</a></div>
+  <nav class="wrap" id="nav"></nav>
+</header>
+<main class="wrap archive">
+  <h2>Berichten</h2>
+  <p class="intro">Wat Roel op Facebook schrijft, van nieuw naar oud.</p>
+  <div id="list"></div>
+</main>
+<script src="posts.js"></script>
+<script>
+fetch('posts.json').then(r => r.json()).then(posts => renderPosts(document.getElementById('list'), posts, true));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

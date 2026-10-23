@@ -39,3 +39,11 @@ nav a:hover { color:var(--accent); }
 .year { font-size:1.4rem; font-weight:normal; margin:36px 0 4px; color:var(--accent); }
 .topbar { background:var(--soft); border-bottom:1px solid var(--line); padding-top:20px; }
 .topbar .home { display:inline-block; font-size:1.3rem; color:var(--fg); text-decoration:none; margin-bottom:10px; }
+.archive a.post-item { display:flex; gap:18px; align-items:flex-start; }
+.archive a.post-item > div { flex:1; min-width:0; }
+.archive a.post-item img { width:120px; height:90px; object-fit:cover; border-radius:6px; flex-shrink:0; margin-top:4px; }
+@media (max-width:560px) { .archive a.post-item img { width:84px; height:64px; } }
+.intro { color:var(--muted); margin:-6px 0 8px; }
+.post .subtitle { font-style:italic; color:var(--muted); }
+.post .body img { display:block; margin:18px 0; }
+.post .body a.ext { display:block; margin-top:10px; font:.9rem system-ui, sans-serif; }
