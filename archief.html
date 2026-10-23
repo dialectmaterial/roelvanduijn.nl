@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Archief – Roel van Duijn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap"><a class="home" href="./">Roel van Duijn</a></div>
+  <nav class="wrap" id="nav"></nav>
+</header>
+<main class="wrap archive">
+  <h2>Archief</h2>
+  <div id="list"></div>
+</main>
+<script>
+const fmt = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long' });
+fetch('articles.json').then(r => r.json()).then(list => {
+  const el = document.getElementById('list');
+  let year;
+  for (const a of list) {
+    if (a.date.slice(0, 4) !== year) {
+      year = a.date.slice(0, 4);
+      const h = document.createElement('h3'); h.className = 'year'; h.textContent = year; el.append(h);
+    }
+    const item = document.createElement('a');
+    item.className = 'item'; item.href = 'artikel.html?id=' + a.id;
+    item.innerHTML = '<time></time><h3></h3>';
+    item.querySelector('time').textContent = fmt(a.date);
+    item.querySelector('h3').textContent = a.title;
+    el.append(item);
+  }
+});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

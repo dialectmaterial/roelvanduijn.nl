@@ -8,8 +8,11 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="topbar">
+  <div class="wrap"><a class="home" href="./">Roel van Duijn</a></div>
+  <nav class="wrap" id="nav"></nav>
+</header>
 <main class="wrap post">
-  <a class="back" href="./">← Roel van Duijn</a>
   <article style="border:0;padding:0;margin-top:24px">
     <time></time>
     <h1></h1>
@@ -18,16 +21,19 @@
   </article>
 </main>
 <script>
-const id = Number(new URLSearchParams(location.search).get('id'));
-fetch('articles.json').then(r => r.json()).then(list => {
+const q = new URLSearchParams(location.search);
+const isPage = q.has('pagina');
+const id = Number(isPage ? q.get('pagina') : q.get('id'));
+fetch(isPage ? 'pages.json' : 'articles.json').then(r => r.json()).then(list => {
   const a = list.find(x => x.id === id);
   if (!a) { document.querySelector('h1').textContent = 'Artikel niet gevonden'; return; }
   document.title = a.title + ' – Roel van Duijn';
-  document.querySelector('time').textContent = new Date(a.date).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
+  if (!isPage) document.querySelector('time').textContent = new Date(a.date).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
   document.querySelector('h1').textContent = a.title;
   document.querySelector('.body').innerHTML = a.html;
   document.querySelector('.orig').textContent = 'Oorspronkelijk gepubliceerd op roelvanduijn.nl';
 });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>

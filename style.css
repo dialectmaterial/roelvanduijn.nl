@@ -32,3 +32,10 @@ footer a { color:inherit; }
 .post .body a { color:var(--accent); }
 .post .body iframe { max-width:100%; }
 .post .orig { margin-top:32px; font:.8rem system-ui, sans-serif; color:var(--muted); }
+nav { display:flex; flex-wrap:wrap; gap:4px 18px; padding-bottom:16px; font:.85rem system-ui, sans-serif; }
+nav a { color:var(--muted); text-decoration:none; }
+nav a:hover { color:var(--accent); }
+.more { display:inline-block; margin-top:16px; font:.9rem system-ui, sans-serif; color:var(--accent); text-decoration:none; }
+.year { font-size:1.4rem; font-weight:normal; margin:36px 0 4px; color:var(--accent); }
+.topbar { background:var(--soft); border-bottom:1px solid var(--line); padding-top:20px; }
+.topbar .home { display:inline-block; font-size:1.3rem; color:var(--fg); text-decoration:none; margin-bottom:10px; }
