@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <header class="hero">
@@ -45,7 +45,7 @@
     Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.
   </div>
 </footer>
-<script src="posts.js?v=3"></script>
+<script src="posts.js?v=4"></script>
 <script>
 fetch('posts.json').then(r => r.json()).then(posts => renderPosts(document.getElementById('posts'), posts.slice(0, 5)));
 
@@ -65,6 +65,6 @@ fetch('articles.json').then(r => r.json()).then(list => {
   }
 });
 </script>
-<script src="nav.js"></script>
+<script src="nav.js?v=4"></script>
 </body>
 </html>

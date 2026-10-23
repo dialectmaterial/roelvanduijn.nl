@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Meer – Roel van Duijn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="home" href="./">Roel van Duijn</a>
+    <nav id="nav"></nav>
+  </div>
+</header>
+<main class="wrap archive">
+  <h2>Meer</h2>
+  <p class="intro">De overige pagina's van de oude website.</p>
+  <div id="list"></div>
+</main>
+<script>
+// Pages not in the main menu, in a sensible order.
+const ORDER = ['Publicaties', 'Politiek', 'Films – Documentaires – Uitzendingen', 'Chopin', 'Frédéric Chopin 200 jaar geleden geboren', 'Familie', 'Diepvriesfiguur', 'Werkstukken studenten', 'Links', 'English Page'];
+fetch('pages.json').then(r => r.json()).then(pages => {
+  const el = document.getElementById('list');
+  for (const title of ORDER) {
+    const p = pages.find(x => x.title === title);
+    if (!p) continue;
+    const tmp = document.createElement('div'); tmp.innerHTML = p.html;
+    const text = tmp.textContent.replace(/\s+/g, ' ').trim();
+    const a = document.createElement('a');
+    a.className = 'item plain'; a.href = 'artikel.html?pagina=' + p.id;
+    a.innerHTML = '<h3></h3><p></p>';
+    a.querySelector('h3').textContent = p.title.replace(' – Documentaires – Uitzendingen', ', documentaires en uitzendingen');
+    a.querySelector('p').textContent = text.length > 150 ? text.slice(0, 150).replace(/\s\S*$/, '') + '…' : text;
+    el.append(a);
+  }
+});
+</script>
+<script src="nav.js?v=4"></script>
+</body>
+</html>
