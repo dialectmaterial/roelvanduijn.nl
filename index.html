@@ -1,15 +1,30 @@
 <!doctype html>
 <html lang="nl">
 <head>
+<script>
+// Links to the old WordPress site: ?p=123, ?page_id=12, ?m=201409, ?cat=7.
+(() => {
+  const q = new URLSearchParams(location.search), id = q.get('p') || q.get('page_id');
+  if (id) location.replace('artikel.html?' + (q.has('page_id') ? 'pagina=' : 'id=') + encodeURIComponent(id));
+  else if (q.has('m') || q.has('cat') || q.has('s')) location.replace(q.has('s') ? 'zoeken.html?q=' + encodeURIComponent(q.get('s')) : 'archief.html');
+})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Roel van Duijn</title>
 <meta name="description" content="Roel van Duijn: schrijver en activist, medeoprichter van Provo en de Kabouters. Zijn nieuwe boek De aanval op Europa en zijn reeks Rusland en Roel.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Roel van Duijn">
+<meta property="og:title" content="Roel van Duijn">
+<meta property="og:description" content="Roel van Duijn: schrijver en activist, medeoprichter van Provo en de Kabouters. Zijn nieuwe boek De aanval op Europa en zijn reeks Rusland en Roel.">
+<meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
+<meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 <header class="hero">
@@ -54,6 +69,12 @@
     <a class="more" href="archief.html">Het hele archief</a>
   </section>
 
+  <section aria-labelledby="ld-kop">
+    <h2 id="ld-kop"><a href="liefdesverdriet.html">Liefdesverdriet</a></h2>
+    <p class="intro">Van 2005 tot 2015 verzamelde Roel op liefdesverdriet.info honderd verhalen van lezers, met gedichten, brieven, raad en onderzoek met de UvA.</p>
+    <p class="actions"><a href="liefdesverdriet.html#verhalen">Lees de verhalen</a> <a href="liefdesverdriet.html#hulp">Wat kun je doen?</a> <a href="liefdesverdriet.html#onderzoek">Het onderzoek</a></p>
+  </section>
+
   <section aria-labelledby="foto-kop">
     <h2 id="foto-kop">Foto's</h2>
     <div class="gallery">
@@ -65,7 +86,7 @@
     </div>
   </section>
 </main>
-<script src="posts.js?v=10"></script>
+<script src="posts.js?v=13"></script>
 <script>
 loadPosts().then(posts => {
   const series = posts.filter(p => p.series);
@@ -90,10 +111,10 @@ fetch('articles.json').then(r => r.json()).then(list => {
 </script>
 <footer>
   <div class="wrap">
-    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
     <p>Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige historische foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.</p>
   </div>
 </footer>
-<script src="nav.js?v=10"></script>
+<script src="nav.js?v=13"></script>
 </body>
 </html>

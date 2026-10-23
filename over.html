@@ -6,10 +6,17 @@
 <meta name="robots" content="noindex">
 <title>Over Roel – Roel van Duijn</title>
 <meta name="description" content="Over Roel van Duijn: biografie, politiek, familie, films en publicaties.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Roel van Duijn">
+<meta property="og:title" content="Over Roel – Roel van Duijn">
+<meta property="og:description" content="Over Roel van Duijn: biografie, politiek, familie, films en publicaties.">
+<meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
+<meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 <header class="topbar">
@@ -31,7 +38,7 @@
   <h2>Meer over Roel</h2>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=10"></script>
+<script src="posts.js?v=13"></script>
 <script>
 loadPress().then(items => renderPress(document.getElementById('press'), items));
 // The other pages of the old site, in a sensible order.
@@ -54,10 +61,10 @@ fetch('pages.json').then(r => r.json()).then(pages => {
 </script>
 <footer>
   <div class="wrap">
-    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>.</p>
+    <p>Roel van Duijn, schrijver in Zutphen. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
     
   </div>
 </footer>
-<script src="nav.js?v=10"></script>
+<script src="nav.js?v=13"></script>
 </body>
 </html>

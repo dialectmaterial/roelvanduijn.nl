@@ -2,7 +2,7 @@
 // berichten.html, rusland.html and boek.html.
 const fmtDate = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
 const BOOK = /aanval op europa|eurotariaat/i;
-const DATA_V = '11';  // bump when posts.json or themes.json change
+const DATA_V = '13';  // bump when posts.json or themes.json change
 
 const seriesNo = p => p.series ? Number(p.series.match(/\d+/)[0]) : null;
 const isBook = p => BOOK.test((p.title || '') + ' ' + (p.subtitle || '') + ' ' + p.text);
@@ -28,7 +28,9 @@ const matches = (p, terms) => { const t = fold(searchText(p)); return terms.ever
 // A short passage around the first match, with every term marked.
 function snippet(p, terms, width = 110) {
   const text = searchText(p).replace(/\s+/g, ' '), folded = fold(text);
-  const at = Math.min(...terms.map(w => folded.indexOf(w)).filter(i => i >= 0));
+  const found = terms.map(w => folded.indexOf(w)).filter(i => i >= 0);
+  if (!found.length) return escapeHtml(text.slice(0, width * 1.6)) + (text.length > width * 1.6 ? '…' : '');  // matched in the title only
+  const at = Math.min(...found);
   let start = Math.max(0, at - width / 2), end = Math.min(text.length, at + width * 1.4);
   if (start > 0) { const sp = text.indexOf(' ', start); if (sp >= 0 && sp < at) start = sp + 1; }  // begin at a whole word
   if (end < text.length) { const sp = text.lastIndexOf(' ', end); if (sp > at) end = sp; }
