@@ -316,3 +316,4 @@ section.start > h2:first-child { margin-top: 18px; }
   .topbar #nav { flex-basis: 100%; }
   .hero .menu-btn { margin-top: 24px; }
 }
+.search-end .home-search { margin-top: 12px; }
