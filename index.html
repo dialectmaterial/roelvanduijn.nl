@@ -5,27 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Roel van Duijn</title>
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-<header>
+<header class="hero">
   <div class="wrap">
-    <img src="images/portret-1970.jpg" alt="Roel van Duijn, 1970">
-    <div>
-      <h1>Roel van Duijn</h1>
-      <p>Schrijver, activist, mede-oprichter van Provo en de Kabouterbeweging</p>
+    <div class="hero-top">
+      <h1 class="name">Roel van <span>Duijn</span></h1>
+      <span class="print"><img src="images/portret-1970.jpg" alt="Roel van Duijn in 1970"></span>
     </div>
+    <p class="lede">Schrijver en activist. In 1965 richtte hij Provo mee op, in 1970 de Kabouters. Hij woont in Zutphen en schrijft over Europa, Rusland en zijn leven in de politiek.</p>
+    <nav id="nav"></nav>
   </div>
-  <nav class="wrap" id="nav"></nav>
 </header>
 <main class="wrap">
-  <h2>Recente berichten</h2>
+  <h2>Berichten</h2>
   <div class="archive" id="posts"></div>
-  <a class="more" href="berichten.html">Alle berichten →</a>
+  <a class="more" href="berichten.html">Alle berichten</a>
 
   <h2>Uit het archief</h2>
   <div class="archive" id="archive"></div>
-  <a class="more" href="archief.html">Alle artikelen →</a>
+  <a class="more" href="archief.html">Alle artikelen uit het archief</a>
 
   <h2>Foto's</h2>
   <div class="gallery">
@@ -42,7 +45,7 @@
     Foto 2008: Green Bill, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons. Overige foto's: Nationaal Archief / Anefo, CC0, via Wikimedia Commons.
   </div>
 </footer>
-<script src="posts.js"></script>
+<script src="posts.js?v=3"></script>
 <script>
 fetch('posts.json').then(r => r.json()).then(posts => renderPosts(document.getElementById('posts'), posts.slice(0, 5)));
 

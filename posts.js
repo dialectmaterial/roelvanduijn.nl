@@ -1,4 +1,4 @@
-// Facebook posts (posts.json): cards on the home page, full list on berichten.html.
+// Facebook posts (posts.json): the list on the home page and on berichten.html.
 const fmtDate = d => new Date(d).toLocaleDateString('nl-NL', { day:'numeric', month:'long', year:'numeric' });
 
 function postTitle(p) {
@@ -9,18 +9,22 @@ function postTitle(p) {
 
 function postCard(p) {
   const a = document.createElement('a');
-  a.className = 'item post-item';
+  a.className = 'item' + (p.images.length ? ' post-item' : '');
   a.href = 'artikel.html?bericht=' + p.id;
-  a.innerHTML = '<div><time></time><h3></h3><p></p></div>';
-  a.querySelector('time').textContent = fmtDate(p.date) + (p.series ? ' · ' + p.series : '');
+  a.innerHTML = '<time></time><h3></h3>';
+  a.querySelector('time').textContent = fmtDate(p.date);
   a.querySelector('h3').textContent = postTitle(p);
-  const text = (p.subtitle ? p.subtitle + ' ' : '') + (p.title ? p.text : p.text.split(' ').slice(10).join(' '));
-  const t = text.replace(/\s+/g, ' ').trim();
-  a.querySelector('p').textContent = t.length > 180 ? t.slice(0, 180) + '…' : t;
+  if (p.series) {
+    const s = document.createElement('span'); s.className = 'series'; s.textContent = p.series; a.append(s);
+  }
+  const text = ((p.subtitle ? p.subtitle + '. ' : '') + (p.title ? p.text : p.text.split(/\s+/).slice(10).join(' '))).replace(/\s+/g, ' ').trim();
+  if (text) {
+    const e = document.createElement('p'); e.textContent = text.length > 170 ? text.slice(0, 170).replace(/\s\S*$/, '') + '…' : text; a.append(e);
+  }
   if (p.images.length) {
-    const i = document.createElement('img');
-    i.src = p.images[0].src; i.alt = ''; i.loading = 'lazy';
-    a.append(i);
+    const s = document.createElement('span'); s.className = 'print';
+    const i = document.createElement('img'); i.src = p.images[0].src; i.alt = ''; i.loading = 'lazy';
+    s.append(i); a.append(s);
   }
   return a;
 }
