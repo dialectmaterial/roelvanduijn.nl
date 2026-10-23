@@ -1,97 +1,84 @@
 <!doctype html>
 <html lang="nl">
 <head>
-<script>
-// Links to the old WordPress site: ?p=123, ?page_id=12, ?m=201409, ?cat=7.
-(() => {
-  const q = new URLSearchParams(location.search), id = q.get('p') || q.get('page_id');
-  if (id) location.replace('artikel.html?' + (q.has('page_id') ? 'pagina=' : 'id=') + encodeURIComponent(id));
-  else if (q.has('m') || q.has('cat') || q.has('s')) location.replace(q.has('s') ? 'zoeken.html?q=' + encodeURIComponent(q.get('s')) : 'archief.html');
-})();
-</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Roel van Duijn</title>
 <meta name="description" content="Roel van Duijn: schrijver en activist, medeoprichter van Provo en de Kabouters. Zijn nieuwe boek De aanval op Europa en zijn reeks Roel en Rusland.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://roelvanduijn.nl/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/anybody-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=23">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Roel van Duijn">
 <meta property="og:title" content="Roel van Duijn">
 <meta property="og:description" content="Roel van Duijn: schrijver en activist, medeoprichter van Provo en de Kabouters. Zijn nieuwe boek De aanval op Europa en zijn reeks Roel en Rusland.">
+<meta property="og:url" content="https://roelvanduijn.nl/">
 <meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
 <meta property="og:locale" content="nl_NL">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=19">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Roel van Duijn", "url": "https://roelvanduijn.nl/", "birthDate": "1943", "birthPlace": "Den Haag", "jobTitle": "Schrijver", "image": "https://roelvanduijn.nl/images/portret-1970.jpg", "sameAs": ["https://nl.wikipedia.org/wiki/Roel_van_Duijn", "https://www.facebook.com/roelvduijn"]}</script>
 </head>
-<body>
+<body data-page="home">
+<a class="skip" href="#inhoud">Naar de inhoud</a>
 <header class="hero">
   <div class="wrap">
     <div class="hero-top">
       <h1 class="name">Roel van <span>Duijn</span></h1>
-      <span class="print"><img src="images/portret-1970.jpg" alt="Roel van Duijn in 1970"></span>
+      <span class="print"><img src="/images/medium/portret-1970.jpg" alt="Roel van Duijn in 1970" width="208" height="260"></span>
     </div>
     <p class="lede">Schrijver en activist. In 1965 richtte hij Provo mee op, in 1970 de Kabouters. Nu woont hij in Zutphen en schrijft hij over Poetins oorlog, Trump en de toekomst van Europa.</p>
-    <form class="home-search" role="search" action="zoeken.html">
+    <form class="home-search" role="search" action="/zoeken/">
       <label for="hq" class="visually-hidden">Zoek op de site</label>
       <input id="hq" name="q" type="search" placeholder="Zoek in alles van Roel">
       <button type="submit">Zoeken</button>
     </form>
-    <nav id="nav" aria-label="Hoofdmenu"></nav>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav" hidden>Menu</button>
+    <nav id="nav" aria-label="Hoofdmenu">
+      <a href="/roel-en-rusland/">Roel en Rusland</a>
+      <a href="/de-aanval-op-europa/">De aanval op Europa</a>
+      <a href="/berichten/">Berichten</a>
+      <a href="/boeken/">Boeken</a>
+      <a href="/archief/">Archief</a>
+      <a href="/over/">Over Roel</a>
+      <a href="/contact/">Contact</a>
+      <a href="/zoeken/">Zoeken</a>
+    </nav>
   </div>
 </header>
-<main class="wrap">
+<main id="inhoud" class="wrap">
   <section class="book-feature" aria-labelledby="boek-kop">
-    <a class="cover" href="boek.html"><img src="images/boek/aanval-op-europa.jpg" alt="Omslag van De aanval op Europa, tussen Trump en Poetin"></a>
+    <a class="cover" href="/de-aanval-op-europa/"><img src="/images/medium/aanval-op-europa.jpg" alt="Omslag van De aanval op Europa, tussen Trump en Poetin" width="447" height="685"></a>
     <div>
       <p class="kicker">Nieuw boek, mei 2026</p>
-      <h2 id="boek-kop"><a href="boek.html">De aanval op Europa</a></h2>
+      <h2 id="boek-kop"><a href="/de-aanval-op-europa/">De aanval op Europa</a></h2>
       <p class="sub">Tussen Trump en Poetin</p>
       <p>Trump en Poetin vallen Europa van twee kanten aan. In dit pamflet legt Roel uit wat de twee verbindt, hoe Europa zich kan verdedigen, en roept hij op tot de Verenigde Staten van Europa.</p>
-      <p class="actions"><a href="boek.html">Over het boek</a> <a href="mailto:roelvduijn@planet.nl?subject=Bestelling%20De%20aanval%20op%20Europa">Bestel een gesigneerd exemplaar</a></p>
+      <p class="actions"><a href="/de-aanval-op-europa/">Over het boek</a> <a href="mailto:roelvduijn@planet.nl?subject=Bestelling%20De%20aanval%20op%20Europa">Bestel een gesigneerd exemplaar</a></p>
     </div>
   </section>
-
   <section aria-labelledby="rr-kop">
-    <h2 id="rr-kop"><a href="rusland.html">Roel en Rusland</a></h2>
-    <p class="intro">Roels doorlopende reeks over Poetins oorlog, Trump en Europa.</p>
-    <div class="archive" id="series"></div>
-    <a class="more" href="rusland.html">Alle afleveringen</a>
+    <h2 id="rr-kop"><a href="/roel-en-rusland/">Roel en Rusland</a></h2>
+    <p class="intro">Roels doorlopende reeks over Poetins oorlog, Trump en Europa: 191 afleveringen sinds februari 2022.</p>
+    <div class="archive"><a class="item post-item numbered" href="/roel-en-rusland/194-wie-is-de-ergste-verrader/" data-no="194" data-themes="rechts front trump" data-kind="rusland" data-year="2026"><span class="no">194</span><h3>Wie is de ergste verrader?</h3><span class="series">14 oktober 2026</span><p>Op het moment dat Poetin in de Donbas alle passagiers van een lijnbus laat doden, zoekt Gerhard Schröder de dader in Moskou op. Om hem te omhelzen voor zijn 74e…</p><span class="print"><img src="/images/thumbs/fb/2026-10-14-1.jpg" alt="" loading="lazy"></span></a><a class="item post-item numbered" href="/roel-en-rusland/193-ik-ben-lid-geworden-van-pro/" data-no="193" data-themes="europa rechts" data-kind="rusland" data-year="2026"><span class="no">193</span><h3>Ik ben lid geworden van PRO</h3><span class="series">26 september 2026</span><p>Ik voelde mij al lang schuldig dat ik geen lid van een politieke partij was. Ik hield me voor dat ik dan misschien niet langer als een onafhankelijk schrijver zou kunnen…</p><span class="print"><img src="/images/thumbs/fb/2026-09-26-1.jpg" alt="" loading="lazy"></span></a><a class="item post-item numbered" href="/roel-en-rusland/192-raketten-tegen-asielzoekers/" data-no="192" data-themes="front poetin europa" data-kind="rusland" data-year="2026"><span class="no">192</span><h3>Raketten tegen asielzoekers</h3><span class="series">16 september 2026</span><p>Wij zijn een week in Goedroens geschokte Heimat geweest. ‘Nu leven we in de werkelijkheid’, sprak haar broer over de waanzinnige zege van de AfD in deelstaat…</p><span class="print"><img src="/images/thumbs/fb/2026-09-16-2-1.jpg" alt="" loading="lazy"></span></a></div>
+    <a class="more" href="/roel-en-rusland/">Alle afleveringen</a>
   </section>
-
   <section aria-labelledby="ber-kop">
     <h2 id="ber-kop">Meer van Roel</h2>
-    <div class="archive" id="posts"></div>
-    <a class="more" href="berichten.html">Alle berichten</a>
+    <div class="archive"><a class="item" href="/berichten/2026-10-23-de-revolutie-etude-van-frederiek-chopin-nu-in-z-n/" data-kind="boek" data-year="2026"><time datetime="2026-10-23">23 oktober 2026</time><h3>De revolutie Etude van Frederiek Chopin - nu in z&#x27;n geheel</h3><p>In 1830 was de jonge Chopin in Wenen om zijn eerste buitenlandse concert te geven. daar hoorde hij dat de Russen zijn geboortestad Warschau hadden bezet, zoals zij dat…</p></a><a class="item" href="/berichten/2026-10-23-2-oproep-aan-het-eurotariaat/" data-kind="boek" data-year="2026"><time datetime="2026-10-23">23 oktober 2026</time><h3>Oproep aan het Eurotariaat</h3><p>Hoe kan Europa zich verdedigen tegen de gecombineerde aanval van Poetin en Trump? Ik doe een oproep om Europa sterk en verenigd te maken, in de Verenigde Staten van…</p></a><a class="item" href="/berichten/2026-10-10-lunchconcert-roel/" data-kind="overig" data-year="2026"><time datetime="2026-10-10">10 oktober 2026</time><h3>Lunchconcert Roel</h3><p>H et was vandaag buurtkluasag in onze straat in Zutphen. Alle buren huilen mee ons de bomen, de straat een extra beurt te geven en in elkaars tuinen de werken. geweldig…</p></a><a class="item post-item" href="/berichten/2026-10-04-feestuitgave-miss-blanche-nu-voor-oude-prijs-van-7/" data-kind="overig" data-year="2026"><time datetime="2026-10-04">4 oktober 2026</time><h3>Feestuitgave Miss Blanche nu voor oude prijs van 75 cent!</h3><p>Een verdwenen engel keert terug. Na zestig jaar is zij er weer! Ik was verbaasd toen een podcastmaker mij een oeroud boekje bracht, van mijn eigen hand, dat hij bij een…</p><span class="print"><img src="/images/thumbs/fb/2026-10-04-1.jpg" alt="" loading="lazy"></span></a></div>
+    <a class="more" href="/berichten/">Alle berichten</a>
   </section>
-
   <section aria-labelledby="foto-kop">
     <h2 id="foto-kop">Foto's</h2>
-    <div class="gallery">
-      <figure><img src="images/kabouters-1971.jpg" alt="Guy Kilian, Roel van Duijn en Peter Hakkenberg van Gaasbeek" loading="lazy"><figcaption>Met de Kabouters, 1971<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
-      <figure><img src="images/fiets-1975.jpg" alt="Van Duijn op de fiets, gevolgd door witkarren" loading="lazy"><figcaption>Op de fiets, gevolgd door witkarren, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
-      <figure><img src="images/sprookje-1975.jpg" alt="Van Duijn leest een sprookje voor" loading="lazy"><figcaption>Leest een sprookje voor, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure>
-      <figure><img src="images/bijlmer-1982.jpg" alt="Roel van Duijn op het balkon van zijn flat in de Bijlmer" loading="lazy"><figcaption>Op zijn balkon in de Bijlmer, 1982<span>Hans van Dijk / Anefo, CC0</span></figcaption></figure>
-      <figure><img src="images/portret-2008.jpg" alt="Roel van Duijn op het podium bij GroenLinks, 2008" style="object-position:center" loading="lazy"><figcaption>Op het podium bij GroenLinks, 2008<span>Green Bill, CC BY 3.0</span></figcaption></figure>
-    </div>
+    <div class="gallery"><figure><img src="/images/medium/kabouters-1971.jpg" alt="Guy Kilian, Roel van Duijn en Peter Hakkenberg van Gaasbeek" loading="lazy"><figcaption>Met de Kabouters, 1971<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure><figure><img src="/images/medium/fiets-1975.jpg" alt="Van Duijn op de fiets, gevolgd door witkarren" loading="lazy"><figcaption>Op de fiets, gevolgd door witkarren, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure><figure><img src="/images/medium/sprookje-1975.jpg" alt="Van Duijn leest een sprookje voor" loading="lazy"><figcaption>Leest een sprookje voor, 1975<span>Anefo / Nationaal Archief, CC0</span></figcaption></figure><figure><img src="/images/medium/bijlmer-1982.jpg" alt="Roel van Duijn op het balkon van zijn flat in de Bijlmer" loading="lazy"><figcaption>Op zijn balkon in de Bijlmer, 1982<span>Hans van Dijk / Anefo, CC0</span></figcaption></figure><figure><img src="/images/medium/portret-2008.jpg" alt="Roel van Duijn op het podium bij GroenLinks, 2008" loading="lazy"><figcaption>Op het podium bij GroenLinks, 2008<span>Green Bill, CC BY 3.0</span></figcaption></figure></div>
   </section>
 </main>
-<script src="posts.js?v=19"></script>
-<script>
-loadPosts().then(posts => {
-  const series = posts.filter(p => p.series);
-  renderPosts(document.getElementById('series'), series.slice(0, 3), { numbered: true });
-  renderPosts(document.getElementById('posts'), posts.filter(p => !p.series).slice(0, 4));
-});
-</script>
 <footer>
   <div class="wrap">
-    <p>Roel van Duijn. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="zoeken.html">Zoek op de site</a>.</p>
-    
+    <p>Roel van Duijn. Mail: <a href="mailto:roelvduijn@planet.nl">roelvduijn@planet.nl</a>. Facebook: <a href="https://www.facebook.com/roelvduijn">roelvduijn</a>. <a href="/zoeken/">Zoek op de site</a>.</p>
   </div>
 </footer>
-<script src="nav.js?v=19"></script>
+<script src="/site.js?v=23"></script>
 </body>
 </html>
