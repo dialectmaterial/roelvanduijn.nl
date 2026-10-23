@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Personen – Rusland en Roel – Roel van Duijn</title>
-<meta name="description" content="Wie er voorkomt in Rusland en Roel, van Poetin en Zelensky tot Zjenja en Goedroen, met de afleveringen over hen.">
+<title>Personen – Roel en Rusland – Roel van Duijn</title>
+<meta name="description" content="Wie er voorkomt in Roel en Rusland, van Poetin en Zelensky tot Zjenja en Goedroen, met de afleveringen over hen.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Roel van Duijn">
-<meta property="og:title" content="Personen – Rusland en Roel – Roel van Duijn">
-<meta property="og:description" content="Wie er voorkomt in Rusland en Roel, van Poetin en Zelensky tot Zjenja en Goedroen, met de afleveringen over hen.">
+<meta property="og:title" content="Personen – Roel en Rusland – Roel van Duijn">
+<meta property="og:description" content="Wie er voorkomt in Roel en Rusland, van Poetin en Zelensky tot Zjenja en Goedroen, met de afleveringen over hen.">
 <meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
 <meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
 <header class="topbar">
@@ -26,8 +26,8 @@
   </div>
 </header>
 <main class="wrap archive">
-  <h1 class="page-title">Rusland en Roel</h1>
-  <nav class="subnav" aria-label="Rusland en Roel">
+  <h1 class="page-title">Roel en Rusland</h1>
+  <nav class="subnav" aria-label="Roel en Rusland">
     <a href="rusland.html">Afleveringen</a>
     <a href="tijdlijn.html">Tijdlijn</a>
     <a href="personen.html" aria-current="page">Personen</a>
@@ -36,7 +36,7 @@
   <p class="intro">Wie er in de reeks voorkomt, en in welke afleveringen. Klik op een naam voor de lijst.</p>
   <div id="people" class="people"></div>
 </main>
-<script src="posts.js?v=16"></script>
+<script src="posts.js?v=17"></script>
 <script>
 Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())]).then(([posts, extra]) => {
   const byNo = Object.fromEntries(posts.filter(p => p.series).map(p => [seriesNo(p), p]));
@@ -66,6 +66,6 @@ Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())])
     
   </div>
 </footer>
-<script src="nav.js?v=16"></script>
+<script src="nav.js?v=17"></script>
 </body>
 </html>

@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Tijdlijn – Rusland en Roel – Roel van Duijn</title>
-<meta name="description" content="De oorlog in Oekraïne maand voor maand, met de afleveringen van Rusland en Roel die Roel in die maand schreef.">
+<title>Tijdlijn – Roel en Rusland – Roel van Duijn</title>
+<meta name="description" content="De oorlog in Oekraïne maand voor maand, met de afleveringen van Roel en Rusland die Roel in die maand schreef.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Roel van Duijn">
-<meta property="og:title" content="Tijdlijn – Rusland en Roel – Roel van Duijn">
-<meta property="og:description" content="De oorlog in Oekraïne maand voor maand, met de afleveringen van Rusland en Roel die Roel in die maand schreef.">
+<meta property="og:title" content="Tijdlijn – Roel en Rusland – Roel van Duijn">
+<meta property="og:description" content="De oorlog in Oekraïne maand voor maand, met de afleveringen van Roel en Rusland die Roel in die maand schreef.">
 <meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
 <meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
 <header class="topbar">
@@ -26,8 +26,8 @@
   </div>
 </header>
 <main class="wrap archive">
-  <h1 class="page-title">Rusland en Roel</h1>
-  <nav class="subnav" aria-label="Rusland en Roel">
+  <h1 class="page-title">Roel en Rusland</h1>
+  <nav class="subnav" aria-label="Roel en Rusland">
     <a href="rusland.html">Afleveringen</a>
     <a href="tijdlijn.html" aria-current="page">Tijdlijn</a>
     <a href="personen.html">Personen</a>
@@ -36,7 +36,7 @@
   <p class="intro">De oorlog maand voor maand: wat er gebeurde, en wat Roel er die maand over schreef. Nieuwste maand bovenaan.</p>
   <div id="timeline" class="timeline"></div>
 </main>
-<script src="posts.js?v=16"></script>
+<script src="posts.js?v=17"></script>
 <script>
 const MONTHS = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
 Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())]).then(([posts, extra]) => {
@@ -50,7 +50,7 @@ Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())])
   for (const key of [...months.keys()].sort().reverse()) {
     const [y, m] = key.split('-'), { events, cols } = months.get(key);
     if (y !== year) { const h = document.createElement('h2'); h.className = 'year'; h.textContent = year = y; el.append(h); }
-    const sec = document.createElement('section'); sec.className = 'month';
+    const sec = document.createElement('section'); sec.className = 'month'; sec.id = key;
     sec.innerHTML = '<h3></h3>'; sec.querySelector('h3').textContent = MONTHS[Number(m) - 1];
     for (const e of events.sort((a, b) => a.date.localeCompare(b.date))) {
       const p = document.createElement('p'); p.className = 'event';
@@ -75,6 +75,6 @@ Promise.all([loadPosts(), fetch('series.json?v=' + DATA_V).then(r => r.json())])
     
   </div>
 </footer>
-<script src="nav.js?v=16"></script>
+<script src="nav.js?v=17"></script>
 </body>
 </html>

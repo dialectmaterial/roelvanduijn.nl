@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
 <header class="topbar">
@@ -24,17 +24,19 @@
     <h1></h1>
     <div class="body"></div>
     <p class="orig"></p>
-    <nav class="series-nav" aria-label="Rusland en Roel" hidden></nav>
+    <section class="related" hidden><h2>Lees ook</h2><div class="archive"></div></section>
+    <nav class="series-nav" aria-label="Roel en Rusland" hidden></nav>
   </article>
 </main>
-<script src="posts.js?v=16"></script>
+<script src="posts.js?v=17"></script>
 <script>
 const q = new URLSearchParams(location.search);
 if (q.has('bericht')) loadPosts().then(list => {
   const p = list.find(x => x.id === q.get('bericht'));
   if (!p) { document.querySelector('h1').textContent = 'Bericht niet gevonden'; return; }
   document.title = postTitle(p) + ' – Roel van Duijn';
-  document.querySelector('time').textContent = (p.approx ? 'rond ' : '') + fmtDate(p.date) + (p.series ? ', ' + p.series : '');
+  const minutes = Math.max(1, Math.round(p.text.split(/\s+/).length / 220));
+  document.querySelector('time').textContent = (p.approx ? 'rond ' : '') + fmtDate(p.date) + (p.series ? ', ' + p.series : '') + '. ' + minutes + ' minuten lezen';
   document.querySelector('h1').textContent = p.title || '';
   const body = document.querySelector('.body');
   if (p.subtitle) { const s = document.createElement('p'); s.className = 'subtitle'; s.textContent = p.subtitle; body.append(s); }
@@ -68,14 +70,40 @@ if (q.has('bericht')) loadPosts().then(list => {
     try { localStorage.setItem('rr-last', n); } catch (e) {}  // for "Verder lezen" on rusland.html
     fetch('series.json?v=' + DATA_V).then(r => r.json()).then(({ people }) => {
       const here = people.filter(x => x.cols.includes(n));
-      if (!here.length) return;
-      const line = document.createElement('p'); line.className = 'themes-line';
-      line.append('In deze aflevering: ');
-      here.forEach((x, i) => {
-        const l = document.createElement('a'); l.href = 'personen.html#' + x.slug; l.textContent = x.name;
-        line.append(i ? ', ' : '', l);
-      });
-      document.querySelector('.orig').after(line);
+      const orig = document.querySelector('.orig');
+      // What happened in the war that month.
+      const month = p.date.slice(0, 7), when = new Date(p.date).toLocaleDateString('nl-NL', { month: 'long', year: 'numeric' });
+      const tl = document.createElement('p'); tl.className = 'themes-line';
+      tl.innerHTML = 'De oorlog in <a></a>: zie de tijdlijn.';
+      tl.querySelector('a').href = 'tijdlijn.html#' + month; tl.querySelector('a').textContent = when;
+      orig.after(tl);
+      if (here.length) {
+        const line = document.createElement('p'); line.className = 'themes-line';
+        line.append('In deze aflevering: ');
+        here.forEach((x, i) => {
+          const l = document.createElement('a'); l.href = 'personen.html#' + x.slug; l.textContent = x.name;
+          line.append(i ? ', ' : '', l);
+        });
+        orig.after(line);
+      }
+      // Lees ook: columns that share themes and people (Poetin and Trump are in nearly all of
+      // them, so they don't count), preferring ones from around the same time.
+      const mine = new Set(here.filter(x => !['poetin', 'trump'].includes(x.slug)).map(x => x.slug));
+      const peopleOf = c => new Set(people.filter(x => x.cols.includes(c)).map(x => x.slug));
+      const score = x => {
+        const themes = (x.themes || []).filter(t => (p.themes || []).includes(t)).length;
+        const shared = [...peopleOf(seriesNo(x))].filter(s => mine.has(s)).length;
+        const days = Math.abs(new Date(x.date) - new Date(p.date)) / 864e5;
+        return 2 * themes + shared + (days < 120 ? 1 : 0);
+      };
+      const skip = new Set([n, prev && seriesNo(prev), next && seriesNo(next)]);
+      const picks = all.filter(x => !skip.has(seriesNo(x))).map(x => [score(x), x]).filter(([s]) => s >= 3)
+        .sort((a, b) => b[0] - a[0] || b[1].date.localeCompare(a[1].date)).slice(0, 3).map(([, x]) => x);
+      if (picks.length) {
+        const rel = document.querySelector('.related');
+        renderPosts(rel.querySelector('.archive'), picks, { numbered: true });
+        rel.hidden = false;
+      }
     });
     if (p.themes && p.themes.length) fetch('themes.json?v=' + DATA_V).then(r => r.json()).then(themes => {
       const line = document.createElement('p'); line.className = 'themes-line';
@@ -87,7 +115,7 @@ if (q.has('bericht')) loadPosts().then(list => {
       });
       document.querySelector('.orig').after(line);
     });
-    const all_ = document.createElement('a'); all_.href = 'rusland.html'; all_.className = 'all'; all_.textContent = 'Alle afleveringen van Rusland en Roel';
+    const all_ = document.createElement('a'); all_.href = 'rusland.html'; all_.className = 'all'; all_.textContent = 'Alle afleveringen van Roel en Rusland';
     nav.append(all_);
     nav.hidden = false;
   }
@@ -108,6 +136,6 @@ if (!q.has('bericht')) fetch(isPage ? 'pages.json' : 'articles.json').then(r => 
   document.querySelector('.orig').textContent = 'Oorspronkelijk gepubliceerd op roelvanduijn.nl';
 });
 </script>
-<script src="nav.js?v=16"></script>
+<script src="nav.js?v=17"></script>
 </body>
 </html>

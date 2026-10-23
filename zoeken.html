@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Zoeken – Roel van Duijn</title>
-<meta name="description" content="Zoek in alles van Roel van Duijn: Rusland en Roel, berichten, het archief, liefdesverdriet, boeken en pers.">
+<meta name="description" content="Zoek in alles van Roel van Duijn: Roel en Rusland, berichten, het archief, liefdesverdriet, boeken en pers.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Roel van Duijn">
 <meta property="og:title" content="Zoeken – Roel van Duijn">
-<meta property="og:description" content="Zoek in alles van Roel van Duijn: Rusland en Roel, berichten, het archief, liefdesverdriet, boeken en pers.">
+<meta property="og:description" content="Zoek in alles van Roel van Duijn: Roel en Rusland, berichten, het archief, liefdesverdriet, boeken en pers.">
 <meta property="og:image" content="https://roelvanduijn.nl/images/portret-1970.jpg">
 <meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
 <header class="topbar">
@@ -29,17 +29,17 @@
   <h1 class="page-title">Zoeken</h1>
   <form class="finder" role="search" onsubmit="return false">
     <label for="q">Zoek in de hele site</label>
-    <input id="q" type="search" placeholder="Bijvoorbeeld Provo, Krim of afscheid nemen" autocomplete="off" autofocus>
+    <input id="q" type="search" placeholder="Bijvoorbeeld Provo, Krim of Zelensky" autocomplete="off" autofocus>
   </form>
   <div class="themes" role="group" aria-label="Soort" id="kinds"></div>
   <p class="count" id="count" aria-live="polite">De zoekindex wordt geladen…</p>
   <div id="list"></div>
   <button type="button" class="more-btn" id="more" hidden>Toon meer resultaten</button>
 </main>
-<script src="posts.js?v=16"></script>
+<script src="posts.js?v=17"></script>
 <script>
-const KINDS = ['Rusland en Roel', 'Bericht', 'Archief', 'Boek', 'In de pers', 'Pagina'];
-const PLURAL = { 'Rusland en Roel': 'Rusland en Roel', Bericht: 'Berichten', Archief: 'Archief', Boek: 'Boeken', 'In de pers': 'In de pers', Pagina: "Pagina's" };
+const KINDS = ['Roel en Rusland', 'Bericht', 'Archief', 'Boek', 'In de pers', 'Pagina'];
+const PLURAL = { 'Roel en Rusland': 'Roel en Rusland', Bericht: 'Berichten', Archief: 'Archief', Boek: 'Boeken', 'In de pers': 'In de pers', Pagina: "Pagina's" };
 const q = document.getElementById('q'), kindsBox = document.getElementById('kinds'), list = document.getElementById('list'), more = document.getElementById('more');
 let items = [], kind = '', shown = 30, timer;
 q.value = new URLSearchParams(location.search).get('q') || '';
@@ -104,6 +104,6 @@ more.addEventListener('click', () => { shown += 30; update(); });
     
   </div>
 </footer>
-<script src="nav.js?v=16"></script>
+<script src="nav.js?v=17"></script>
 </body>
 </html>

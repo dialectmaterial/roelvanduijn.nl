@@ -1,5 +1,5 @@
 // Main menu, the same on every page.
-const NAV = [['rusland.html', 'Rusland en Roel'], ['boek.html', 'De aanval op Europa'], ['berichten.html', 'Berichten'],
+const NAV = [['rusland.html', 'Roel en Rusland'], ['boek.html', 'De aanval op Europa'], ['berichten.html', 'Berichten'],
   ['boeken.html', 'Boeken'], ['archief.html', 'Archief'], ['over.html', 'Over Roel'], ['artikel.html?pagina=595', 'Contact'], ['zoeken.html', 'Zoeken']];
 (() => {
   const nav = document.getElementById('nav');

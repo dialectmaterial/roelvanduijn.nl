@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
 <header class="topbar">
@@ -30,13 +30,13 @@
   <p class="intro">Wat Roel op Facebook schrijft, van nieuw naar oud.</p>
   <div class="filters" role="group" aria-label="Toon berichten">
     <button type="button" data-f="alles" aria-pressed="true">Alles</button>
-    <button type="button" data-f="rusland" aria-pressed="false">Rusland en Roel</button>
+    <button type="button" data-f="rusland" aria-pressed="false">Roel en Rusland</button>
     <button type="button" data-f="boek" aria-pressed="false">Over het boek</button>
     <button type="button" data-f="overig" aria-pressed="false">Overig</button>
   </div>
   <div id="list"></div>
 </main>
-<script src="posts.js?v=16"></script>
+<script src="posts.js?v=17"></script>
 <script>
 const FILTERS = { alles: () => true, rusland: p => p.series, boek: isBook, overig: p => !p.series && !isBook(p) };
 loadPosts().then(posts => {
@@ -56,6 +56,6 @@ loadPosts().then(posts => {
     
   </div>
 </footer>
-<script src="nav.js?v=16"></script>
+<script src="nav.js?v=17"></script>
 </body>
 </html>
