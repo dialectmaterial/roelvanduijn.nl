@@ -317,3 +317,5 @@ section.start > h2:first-child { margin-top: 18px; }
   .hero .menu-btn { margin-top: 24px; }
 }
 .search-end .home-search { margin-top: 12px; }
+.bio-box.has-cover { display: grid; grid-template-columns: 6.5rem 1fr; gap: 18px; align-items: start; }
+.bio-cover { display: block; width: 100%; height: auto; box-shadow: 4px 4px 0 var(--rule); }
