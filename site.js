@@ -4,6 +4,8 @@
 
 // Search helpers: case- and accent-insensitive ('orban' finds 'Orbán').
 const fold = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+// A theme name inside a sentence: lowercase the first letter, unless it starts with a name (Poetin, Trump, Europa, China).
+const inSentence = n => /^(Poetin|Trump|Europa|China)\b/.test(n) ? n : n[0].toLowerCase() + n.slice(1);
 const escapeHtml = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const termsOf = q => fold(q).split(/\s+/).filter(w => w.length > 1);
 const MONTHS = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
@@ -71,10 +73,10 @@ if (page === 'series') {
     document.querySelectorAll('.theme-desc').forEach(d => { d.hidden = d.dataset.for !== theme; });
     document.querySelectorAll('.start-list').forEach(d => { d.hidden = d.dataset.for !== theme; });
     document.getElementById('start').hidden = terms.length > 0 || !document.querySelector(`.start-list[data-for="${theme}"]`);
-    document.getElementById('start-intro').textContent = theme ? 'Drie afleveringen om mee te beginnen over ' + names[theme].toLowerCase() + '.' : 'Drie afleveringen om mee te beginnen.';
+    document.getElementById('start-intro').textContent = theme ? 'Drie afleveringen om mee te beginnen over ' + inSentence(names[theme]) + '.' : 'Drie afleveringen om mee te beginnen.';
     const what = shown === 1 ? '1 aflevering' : shown + ' afleveringen';
     const with_ = terms.length ? ' met ‘' + q.value.trim() + '’' : '';
-    document.getElementById('count').textContent = shown ? what + with_ + (theme ? ' over ' + names[theme].toLowerCase() : '')
+    document.getElementById('count').textContent = shown ? what + with_ + (theme ? ' over ' + inSentence(names[theme]) : '')
       : 'Geen afleveringen gevonden' + with_ + '. Probeer een ander woord' + (theme ? ' of kies alle thema\'s.' : '.');
     const url = new URLSearchParams();
     if (q.value.trim()) url.set('q', q.value.trim());
