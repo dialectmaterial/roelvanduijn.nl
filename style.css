@@ -108,6 +108,12 @@ figure { margin: 0; }
 figure img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 25%; background: var(--wash); }
 figcaption { font: 500 .9rem/1.35 var(--display); font-variation-settings: "wdth" 85; margin-top: 8px; }
 figcaption span { display: block; font-weight: 400; color: var(--ink-soft); font-size: .8rem; margin-top: 2px; }
+/* The photo page shows every photo whole, in date order row by row; a single photo at the top of a page keeps its shape too. */
+.gallery.all { align-items: start; }
+.gallery.all img, figure.lead img { aspect-ratio: auto; object-fit: contain; }
+figure.lead { max-width: 26rem; margin: 20px 0 28px; }
+.gallery.pair { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 40rem; margin: 20px 0 8px; }
+@media (max-width: 480px) { .gallery.pair { grid-template-columns: 1fr; } }
 
 footer { margin-top: 80px; padding: 24px 0 48px; border-top: 3px solid var(--leaf); color: var(--ink-soft); font-size: .9rem; line-height: 1.5; }
 .back { display: inline-block; margin-top: 32px; }

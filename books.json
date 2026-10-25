@@ -23,35 +23,40 @@
   "title": "Schoonvader van Poetins geheim agent",
   "subtitle": "Tien jaar oorlog en liefde",
   "publisher": "Walburg Pers",
-  "note": null
+  "note": null,
+  "cover": "images/boek/schoonvader-van-poetins-geheim-agent.jpg"
  },
  {
   "year": 2022,
   "title": "Mijn zus Lucie",
   "subtitle": "Kunstenares en inspiratiebron",
   "publisher": null,
-  "note": null
+  "note": null,
+  "cover": "images/boek/mijn-zus-lucie.jpg"
  },
  {
   "year": 2021,
   "title": "Het echte complot",
   "subtitle": "De waarheid achter de wanen",
   "publisher": "Uitgeverij Aspekt",
-  "note": null
+  "note": null,
+  "cover": "images/boek/het-echte-complot.jpg"
  },
  {
   "year": 2021,
   "title": "Himmlers holländische Muse",
   "subtitle": "Die zwei Leben der Baroness Julia Op ten Noort",
   "publisher": "Schmetterling Verlag, Stuttgart",
-  "note": "Duitse vertaling van Een zoon voor de Führer, door Rolf Somann."
+  "note": "Duitse vertaling van Een zoon voor de Führer, door Rolf Somann.",
+  "cover": "images/boek/himmlers-hollandische-muse.jpg"
  },
  {
   "year": 2018,
   "title": "Een zoon voor de Führer",
   "subtitle": "De nazi-utopie van Julia Op ten Noort",
   "publisher": "Boom",
-  "note": null
+  "note": null,
+  "cover": "images/boek/een-zoon-voor-de-fuhrer.jpg"
  },
  {
   "year": 2016,
@@ -65,14 +70,16 @@
   "title": "Spitten voor de moffen",
   "subtitle": "Egodocument door Roel en Gerard van Duijn",
   "publisher": "Van Praag",
-  "note": null
+  "note": null,
+  "cover": "images/boek/spitten-voor-de-moffen.jpg"
  },
  {
   "year": 2012,
   "title": "Diepvriesfiguur",
   "subtitle": "Autobiografie van PD106043 in samenwerking met de AIVD",
   "publisher": "Van Praag",
-  "note": null
+  "note": null,
+  "cover": "images/boek/diepvriesfiguur.jpg"
  },
  {
   "year": 2008,
@@ -104,10 +111,11 @@
  },
  {
   "year": 1991,
-  "title": "Het Leeuwenkind",
+  "title": "Het leeuwekind",
   "subtitle": "Een roman over zwangerschap",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/het-leeuwekind.jpg"
  },
  {
   "year": 1988,
@@ -121,7 +129,8 @@
   "title": "Provo, de geschiedenis van de provotarische beweging",
   "subtitle": null,
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/provo-1985.jpg"
  },
  {
   "year": 1984,
@@ -142,14 +151,16 @@
   "title": "De waarheid is een koe",
   "subtitle": "Aantekeningen van een kleine boer",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/de-waarheid-is-een-koe.jpg"
  },
  {
   "year": 1977,
   "title": "En tranen",
   "subtitle": "Dagboek van een wethouder",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/en-tranen.jpg"
  },
  {
   "year": 1974,
@@ -170,7 +181,8 @@
   "title": "Energieboekje",
   "subtitle": "Over zonne- en windenergie",
   "publisher": "Bert Bakker",
-  "note": null
+  "note": null,
+  "cover": "images/boek/energieboekje.jpg"
  },
  {
   "year": 1972,
@@ -181,24 +193,35 @@
  },
  {
   "year": 1972,
+  "title": "Message of a Wise Kabouter",
+  "subtitle": null,
+  "publisher": "Duckworth, Londen",
+  "note": "Engelse vertaling van De boodschap van een wijze kabouter.",
+  "cover": "images/boek/message-of-a-wise-kabouter.jpg"
+ },
+ {
+  "year": 1972,
   "title": "Panies dagboek",
   "subtitle": "Gesprekken met een rode beuk",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/panies-dagboek.jpg"
  },
  {
   "year": 1971,
   "title": "Schuldbekentenis van een ambassadeur",
   "subtitle": "Nota’s, beschouwingen en vragen van een ambassadeur van de Oranjevrijstaat in de Amsterdamse gemeenteraad",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/schuldbekentenis-van-een-ambassadeur.jpg"
  },
  {
   "year": 1969,
   "title": "De boodschap van een wijze kabouter",
   "subtitle": "Over het werk van Peter Kropotkin, in verband met de keuze tussen katastrofe of kabouterstad",
   "publisher": "Meulenhoff",
-  "note": "Vertaald in acht talen."
+  "note": "Vertaald in acht talen.",
+  "cover": "images/boek/de-boodschap-van-een-wijze-kabouter.jpg"
  },
  {
   "year": 1967,
@@ -212,13 +235,15 @@
   "title": "Miss Blanche en de Van Moppes-diamanten",
   "subtitle": null,
   "publisher": null,
-  "note": "Zijn allereerste boekje, uit het Provo-jaar. In 2026 opnieuw uitgegeven, ook als luisterboek."
+  "note": "Later gebundeld met zijn andere Miss Blanche-verhalen als Miss Blanche in dienst van het provotariaat.",
+  "cover": "images/boek/miss-blanche.jpg"
  },
  {
   "year": 1966,
   "title": "Het witte gevaar",
   "subtitle": "Een vademecum voor Provo’s",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/het-witte-gevaar.jpg"
  }
 ]
