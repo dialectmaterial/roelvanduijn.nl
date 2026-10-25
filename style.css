@@ -47,6 +47,10 @@ a:hover { text-decoration-thickness: 2px; text-decoration-color: var(--leaf); }
 .hero-top .name span { display: block; }
 .hero-top .print { aspect-ratio: 4 / 5; }
 .hero-top .print img { object-position: center 30%; }
+/* The portrait at the top is a recent colour photo: shown in colour, not ink-printed like the thumbnails. */
+.hero-top .print { background: none; box-shadow: 6px 6px 0 rgba(26, 27, 82, .12); }
+.hero-top .print img { filter: none; mix-blend-mode: normal; }
+.hero-top .print::after { display: none; }
 .lede { margin: 28px 0 0; font-size: 1.35rem; line-height: 1.5; max-width: 34rem; }
 @media (max-width: 600px) {
   .hero-top { grid-template-columns: 1fr 6.5rem; gap: 14px; }
