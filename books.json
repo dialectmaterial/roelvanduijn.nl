@@ -100,7 +100,8 @@
   "title": "Liefdesverdriet",
   "subtitle": "Verschillende manieren om als een ster uit liefdesverdriet te verrijzen",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/liefdesverdriet.jpg"
  },
  {
   "year": 1996,
@@ -167,7 +168,8 @@
   "title": "Het wonder van Amsterdam",
   "subtitle": "Hoe Amsterdam de milieukrisis overleven kan",
   "publisher": "Meulenhoff",
-  "note": null
+  "note": null,
+  "cover": "images/boek/het-wonder-van-amsterdam.jpg"
  },
  {
   "year": 1974,
