@@ -114,7 +114,7 @@ if (page === 'people' && location.hash) {
 
 // Search the whole site.
 if (page === 'search') {
-  const KINDS = [['Roel en Rusland', 'Roel en Rusland'], ['Bericht', 'Berichten'], ['Archief', 'Archief'], ['Boek', 'Boeken'], ['In de pers', 'In de pers'], ['Pagina', "Pagina's"]];
+  const KINDS = [['Roel en Rusland', 'Roel en Rusland'], ['Bericht', 'Berichten'], ['Archief', 'Archief'], ['Liefdesverdriet', 'Liefdesverdriet'], ['Boek', 'Boeken'], ['In de pers', 'In de pers'], ['Pagina', "Pagina's"]];
   const q = document.getElementById('q'), kindsBox = document.getElementById('kinds'), list = document.getElementById('list'), more = document.getElementById('more');
   let items = [], kind = '', shown = 30, timer;
   q.value = new URLSearchParams(location.search).get('q') || '';
