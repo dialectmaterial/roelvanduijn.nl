@@ -5,6 +5,7 @@
    "name": "Vladimir Poetin",
    "desc": "President van Rusland, die in februari 2022 de grootschalige invasie van Oekraïne begon.",
    "cols": [
+    196,
     195,
     194,
     193,
@@ -198,6 +199,7 @@
    "name": "Volodymyr Zelensky",
    "desc": "President van Oekraïne.",
    "cols": [
+    196,
     194,
     192,
     191,
@@ -284,6 +286,7 @@
    "name": "Donald Trump",
    "desc": "President van de Verenigde Staten sinds januari 2025, eerder van 2017 tot 2021.",
    "cols": [
+    196,
     195,
     194,
     193,
@@ -470,6 +473,7 @@
    "name": "Kaja Kallas",
    "desc": "Oud-premier van Estland, sinds december 2024 de buitenlandchef van de EU.",
    "cols": [
+    196,
     185,
     180,
     176,
@@ -596,6 +600,7 @@
    "name": "Xi Jinping",
    "desc": "President van China.",
    "cols": [
+    196,
     176,
     173,
     163,
